@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver une séance - Nomad Rise</title>
+    <meta name="description" content="Réservez votre séance de coaching personnalisé avec Nomad Rise.">
+    
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">ACCUEIL</a></li>
+                <li><a href="index.html#services">SERVICES</a></li>
+                <li><a href="index.html#camp">RISE CAMP</a></li>
+                <li><a href="index.html#fit">RISE FIT</a></li>
+                <li><a href="index.html#training">RISE TRAINING</a></li>
+                <li><a href="index.html#tour">RISE TOUR</a></li>
+                <li><a href="index.html#galerie">GALERIE</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+            <a href="index.html" class="logo logo-main">
+                <img src="img/logo site.png" alt="Nomad Rise - Retour à l'accueil" class="logo-img">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Réservation</span>
+                <h2>Réservez votre <span class="gradient-text">séance personnalisée</span></h2>
+                <p>Sélectionnez vos préférences et complétez vos informations pour confirmer votre réservation.</p>
+            </div>
+
+            <div class="reservation-grid">
+                <!-- Étape 1: Sélection du coach -->
+                <div class="reservation-step">
+                    <h3>1. Choisissez votre coach</h3>
+                    <div class="coach-selection">
+                        <label class="coach-option">
+                            <input type="radio" name="coach" value="alexandre" required>
+                            <div class="coach-card">
+                                <img src="img/COACH FUMEE.png" alt="Alexandre" class="coach-img">
+                                <h4>Alexandre</h4>
+                                <p>Expert en technique et stratégie</p>
+                            </div>
+                        </label>
+                        <label class="coach-option">
+                            <input type="radio" name="coach" value="clovis" required>
+                            <div class="coach-card">
+                                <img src="img/COACH FUMEE.png" alt="Clovis" class="coach-img">
+                                <h4>Clovis</h4>
+                                <p>Spécialiste du développement physique</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Étape 2: Sélection de la date (Vendredi) -->
+                <div class="reservation-step">
+                    <h3>2. Choisissez votre vendredi</h3>
+                    <div class="date-selection" id="dateSelection">
+                        <!-- Les vendredis seront générés dynamiquement par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Étape 3: Sélection du créneau -->
+                <div class="reservation-step">
+                    <h3>3. Choisissez votre créneau</h3>
+                    <div class="time-selection">
+                        <label class="time-option">
+                            <input type="radio" name="heure" value="12:00" required>
+                            <span>12:00</span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="heure" value="12:30" required>
+                            <span>12:30</span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="heure" value="13:00" required>
+                            <span>13:00</span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="heure" value="13:30" required>
+                            <span>13:30</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Étape 4: Sélection de la formule -->
+                <div class="reservation-step">
+                    <h3>4. Choisissez votre formule</h3>
+                    
+                    <!-- Sélection de la durée -->
+                    <div class="duration-selection">
+                        <label class="duration-option">
+                            <input type="radio" name="duree" value="30" required>
+                            <div class="duration-card">
+                                <span class="duration-time">30</span>
+                                <span class="duration-unit">min</span>
+                            </div>
+                        </label>
+                        <label class="duration-option">
+                            <input type="radio" name="duree" value="60" required>
+                            <div class="duration-card">
+                                <span class="duration-time">60</span>
+                                <span class="duration-unit">min</span>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <!-- Sélection des points à travailler -->
+                    <div class="skills-section">
+                        <h4 class="skills-title">Sélectionnez vos points à travailler</h4>
+                        <p class="skills-hint" id="skillsHint">Choisissez une durée pour voir les options disponibles</p>
+                        
+                        <div class="skills-grid" id="skillsGrid">
+                            <label class="skill-card" data-skill="tir">
+                                <input type="checkbox" name="skill" value="tir">
+                                <div class="skill-content">
+                                    <span class="skill-icon">🎯</span>
+                                    <span class="skill-name">Tir</span>
+                                    <span class="skill-desc">Précision & technique</span>
+                                </div>
+                            </label>
+                            <label class="skill-card" data-skill="passe">
+                                <input type="checkbox" name="skill" value="passe">
+                                <div class="skill-content">
+                                    <span class="skill-icon">🤝</span>
+                                    <span class="skill-name">Passe</span>
+                                    <span class="skill-desc">Vision & timing</span>
+                                </div>
+                            </label>
+                            <label class="skill-card" data-skill="dribble">
+                                <input type="checkbox" name="skill" value="dribble">
+                                <div class="skill-content">
+                                    <span class="skill-icon">⛹️</span>
+                                    <span class="skill-name">Dribble</span>
+                                    <span class="skill-desc">Contrôle & agilité</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 5: Informations personnelles -->
+                <div class="reservation-step">
+                    <h3>5. Vos informations</h3>
+                    <form class="personal-form" id="reservationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prénom</label>
+                                <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="naissance">Année de naissance</label>
+                                <select id="naissance" name="naissance" required>
+                                    <option value="" disabled selected>Sélectionnez une année</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone (optionnel)</label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX">
+                        </div>
+                        <button type="submit" class="btn-confirm">
+                            <span>Confirmer la réservation</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/logo site.png" alt="Nomad Rise" class="logo-img footer-logo">
+                    </a>
+                    <p>Un système clair pour progresser vite et durablement.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#camp">Nomad Rise Camp</a></li>
+                        <li><a href="index.html#fit">Nomad Rise Fit</a></li>
+                        <li><a href="index.html#training">Nomad Training</a></li>
+                        <li><a href="index.html#tour">Nomad Rise Tour</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="index.html#services">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Suivez-nous</h4>
+                    <div class="footer-social">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nomad Rise. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="assets/js/core/dom.js"></script>
+    <script src="assets/js/modules/navbar.js"></script>
+    <script src="assets/js/modules/forms.js"></script>
+    <script src="assets/js/modules/gallery.js"></script>
+    <script src="assets/js/modules/animations.js"></script>
+    <script src="assets/js/modules/custom-select.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // ==================== //
+        // Configuration EmailJS
+        // ==================== //
+        // IMPORTANT: Remplacez ces valeurs par vos propres identifiants EmailJS
+        // Créez un compte gratuit sur https://www.emailjs.com/
+        const EMAILJS_PUBLIC_KEY = 'PvopsDNGveMzyzjic'; // À remplacer
+        const EMAILJS_SERVICE_ID = 'service_57r81tw'; // À remplacer
+        const EMAILJS_TEMPLATE_ID = 'template_pva5d4e'; // À remplacer
+
+        // Emails des coachs (utilisés pour Google Calendar)
+        const COACH_EMAILS = {
+            'alexandre': 'Support@calyx-informatique.fr', // À remplacer par le vrai email
+            'clovis': 'Support@calyx-informatique.fr' // À remplacer par le vrai email
+        };
+
+        // Initialiser EmailJS
+        (function() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+            }
+        })();
+
+        // ==================== //
+        // Génération des années de naissance
+        // ==================== //
+        function generateBirthYears() {
+            const naissanceSelect = document.getElementById('naissance');
+            if (!naissanceSelect) return;
+            
+            const currentYear = new Date().getFullYear();
+            const minYear = currentYear - 70;
+            const maxYear = currentYear - 5;
+            
+            for (let year = maxYear; year >= minYear; year--) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                naissanceSelect.appendChild(option);
+            }
+            
+            // Réinitialiser le custom select après ajout des options
+            if (window.initCustomSelects) {
+                setTimeout(() => {
+                    // Supprimer l'ancien custom select si existant
+                    const existingCustom = naissanceSelect.nextElementSibling;
+                    if (existingCustom && existingCustom.classList.contains('custom-select')) {
+                        existingCustom.remove();
+                        naissanceSelect.style.display = '';
+                        naissanceSelect.classList.remove('has-custom-select');
+                    }
+                    new CustomSelect(naissanceSelect);
+                }, 100);
+            }
+        }
+
+        // Générer les années au chargement
+        document.addEventListener('DOMContentLoaded', generateBirthYears);
+
+        // ==================== //
+        // Génération des vendredis disponibles
+        // ==================== //
+        function generateFridays() {
+            const dateSelection = document.getElementById('dateSelection');
+            const fridays = [];
+            const today = new Date();
+            let date = new Date(today);
+
+            // Trouver le prochain vendredi
+            while (date.getDay() !== 5) {
+                date.setDate(date.getDate() + 1);
+            }
+
+            // Générer les 6 prochains vendredis
+            for (let i = 0; i < 6; i++) {
+                fridays.push(new Date(date));
+                date.setDate(date.getDate() + 7);
+            }
+
+            // Créer les options de date
+            dateSelection.innerHTML = fridays.map((friday, index) => {
+                const dayName = friday.toLocaleDateString('fr-FR', { weekday: 'long' });
+                const dayNum = friday.getDate();
+                const month = friday.toLocaleDateString('fr-FR', { month: 'long' });
+                const dateValue = friday.toISOString().split('T')[0];
+                
+                return `
+                    <label class="date-option">
+                        <input type="radio" name="date" value="${dateValue}" required>
+                        <div class="date-card">
+                            <span class="date-day">${dayName}</span>
+                            <span class="date-num">${dayNum}</span>
+                            <span class="date-month">${month}</span>
+                        </div>
+                    </label>
+                `;
+            }).join('');
+        }
+
+        // Générer les vendredis au chargement
+        generateFridays();
+
+        // ==================== //
+        // Gestion de la sélection de durée et compétences
+        // ==================== //
+        const skillsGrid = document.getElementById('skillsGrid');
+        const skillsHint = document.getElementById('skillsHint');
+        const durationInputs = document.querySelectorAll('input[name="duree"]');
+        const skillCheckboxes = document.querySelectorAll('input[name="skill"]');
+        
+        let maxSkills = 0;
+        
+        // Activer/désactiver la grille des compétences selon la durée
+        durationInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                const duration = input.value;
+                maxSkills = duration === '30' ? 1 : 2;
+                
+                // Activer la grille
+                skillsGrid.classList.add('active');
+                
+                // Mettre à jour le hint
+                skillsHint.textContent = duration === '30' 
+                    ? 'Sélectionnez 1 point à travailler' 
+                    : 'Sélectionnez 2 points à travailler';
+                
+                // Réinitialiser les sélections
+                skillCheckboxes.forEach(cb => {
+                    cb.checked = false;
+                    cb.closest('.skill-card').classList.remove('disabled');
+                });
+            });
+        });
+        
+        // Gérer la limite de sélection des compétences
+        skillCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = document.querySelectorAll('input[name="skill"]:checked');
+                
+                if (checked.length >= maxSkills) {
+                    // Désactiver les non-sélectionnées
+                    skillCheckboxes.forEach(cb => {
+                        if (!cb.checked) {
+                            cb.closest('.skill-card').classList.add('disabled');
+                        }
+                    });
+                } else {
+                    // Réactiver toutes
+                    document.querySelectorAll('.skill-card').forEach(card => {
+                        card.classList.remove('disabled');
+                    });
+                }
+            });
+        });
+
+        // ==================== //
+        // Création du fichier ICS pour Google Calendar du Coach
+        // ==================== //
+        function createICSFile(data) {
+            const { date, heure, duree, coach, nom, prenom, email, telephone, focusPoints } = data;
+            
+            // Calculer l'heure de début et de fin
+            const [hours, minutes] = heure.split(':');
+            const startDate = new Date(date);
+            startDate.setHours(parseInt(hours), parseInt(minutes), 0);
+            
+            const endDate = new Date(startDate);
+            endDate.setMinutes(endDate.getMinutes() + parseInt(duree));
+            
+            // Formater les dates pour ICS (format: YYYYMMDDTHHmmss)
+            const formatDateICS = (d) => {
+                const pad = (n) => n.toString().padStart(2, '0');
+                return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+            };
+            
+            const coachName = coach.charAt(0).toUpperCase() + coach.slice(1);
+            const skills = focusPoints.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', ');
+            
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nomad Rise//Booking//FR
+BEGIN:VEVENT
+UID:${Date.now()}@nomadrise.com
+DTSTAMP:${formatDateICS(new Date())}
+DTSTART:${formatDateICS(startDate)}
+DTEND:${formatDateICS(endDate)}
+SUMMARY:Séance Coaching - ${prenom} ${nom}
+DESCRIPTION:Client: ${prenom} ${nom}\\nEmail: ${email}\\nTéléphone: ${telephone || 'Non renseigné'}\\nDurée: ${duree} min\\nPoints travaillés: ${skills}
+LOCATION:Lieu Nomad Rise
+ORGANIZER;CN=Nomad Rise:mailto:contact@nomadrise.com
+ATTENDEE;CN=${coachName}:mailto:${COACH_EMAILS[coach]}
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+            return icsContent;
+        }
+
+        // ==================== //
+        // Envoi d'email au coach avec lien calendrier
+        // ==================== //
+        async function sendEmailToCoach(data) {
+            const { date, heure, duree, coach, nom, prenom, email, telephone, focusPoints, naissance } = data;
+            
+            // Créer le lien pour ajouter au calendrier Google du coach
+            const calendarLink = createCoachCalendarLink(data);
+            
+            const templateParams = {
+                to_email: COACH_EMAILS[coach],
+                coach_name: coach.charAt(0).toUpperCase() + coach.slice(1),
+                client_name: `${prenom} ${nom}`,
+                client_email: email,
+                client_phone: telephone || 'Non renseigné',
+                client_birth: naissance,
+                session_date: new Date(date).toLocaleDateString('fr-FR', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                session_time: heure,
+                session_duration: duree + ' minutes',
+                focus_points: focusPoints.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', '),
+                calendar_link: calendarLink
+            };
+            
+            // Si EmailJS est configuré, envoyer l'email
+            if (EMAILJS_PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY' && typeof emailjs !== 'undefined') {
+                try {
+                    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                    return true;
+                } catch (error) {
+                    console.error('Erreur EmailJS:', error);
+                    return false;
+                }
+            } else {
+                console.log('EmailJS non configuré. Données de réservation:', templateParams);
+                return true;
+            }
+        }
+
+        // ==================== //
+        // Création du lien Google Calendar pour le COACH
+        // ==================== //
+        function createCoachCalendarLink(data) {
+            const { date, heure, duree, coach, nom, prenom, email, telephone, focusPoints } = data;
+            
+            // Calculer l'heure de début et de fin
+            const [hours, minutes] = heure.split(':');
+            const startDate = new Date(date);
+            startDate.setHours(parseInt(hours), parseInt(minutes), 0);
+            
+            const endDate = new Date(startDate);
+            endDate.setMinutes(endDate.getMinutes() + parseInt(duree));
+            
+            // Formater les dates pour Google Calendar (format: YYYYMMDDTHHmmss)
+            const formatDate = (d) => {
+                const pad = (n) => n.toString().padStart(2, '0');
+                return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+            };
+            
+            const coachName = coach.charAt(0).toUpperCase() + coach.slice(1);
+            const skills = focusPoints.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', ');
+            
+            const title = encodeURIComponent(`🏀 Coaching - ${prenom} ${nom}`);
+            const details = encodeURIComponent(
+                `📋 DÉTAILS DE LA SÉANCE\n` +
+                `━━━━━━━━━━━━━━━━━━━\n\n` +
+                `👤 Client: ${prenom} ${nom}\n` +
+                `📧 Email: ${email}\n` +
+                `📱 Téléphone: ${telephone || 'Non renseigné'}\n\n` +
+                `⏱️ Durée: ${duree} minutes\n` +
+                `🎯 Points à travailler: ${skills}\n\n` +
+                `━━━━━━━━━━━━━━━━━━━\n` +
+                `Réservation Nomad Rise`
+            );
+            const location = encodeURIComponent('Lieu Nomad Rise - À confirmer');
+            
+            return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${details}&location=${location}&add=${encodeURIComponent(COACH_EMAILS[coach])}`;
+        }
+
+        // ==================== //
+        // Soumission du formulaire
+        // ==================== //
+        document.getElementById('reservationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Récupérer les données du formulaire
+            const coach = document.querySelector('input[name="coach"]:checked');
+            const date = document.querySelector('input[name="date"]:checked');
+            const heure = document.querySelector('input[name="heure"]:checked');
+            const duree = document.querySelector('input[name="duree"]:checked');
+            
+            // Validation
+            if (!coach) {
+                alert('Veuillez sélectionner un coach.');
+                return;
+            }
+            if (!date) {
+                alert('Veuillez sélectionner une date.');
+                return;
+            }
+            if (!heure) {
+                alert('Veuillez sélectionner un créneau horaire.');
+                return;
+            }
+            if (!duree) {
+                alert('Veuillez sélectionner une formule (30 ou 60 min).');
+                return;
+            }
+            
+            // Récupérer les compétences sélectionnées
+            const selectedSkills = document.querySelectorAll('input[name="skill"]:checked');
+            const requiredSkills = duree.value === '30' ? 1 : 2;
+            
+            if (selectedSkills.length !== requiredSkills) {
+                alert(`Veuillez sélectionner exactement ${requiredSkills} point(s) à travailler.`);
+                return;
+            }
+            
+            const focusPoints = Array.from(selectedSkills).map(s => s.value);
+            
+            const data = {
+                coach: coach.value,
+                date: date.value,
+                heure: heure.value,
+                duree: duree.value,
+                focusPoints: focusPoints,
+                nom: document.getElementById('nom').value,
+                prenom: document.getElementById('prenom').value,
+                naissance: document.getElementById('naissance').value,
+                email: document.getElementById('email').value,
+                telephone: document.getElementById('telephone').value
+            };
+            
+            // Afficher l'état de chargement
+            submitBtn.innerHTML = '<span class="loading"></span> Réservation en cours...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Envoyer l'email au coach avec le lien calendrier
+                const emailSent = await sendEmailToCoach(data);
+                
+                // Créer le lien Google Calendar pour le coach
+                const coachCalendarLink = createCoachCalendarLink(data);
+                
+                // Créer le fichier ICS
+                const icsContent = createICSFile(data);
+                const icsBlob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const icsUrl = URL.createObjectURL(icsBlob);
+                
+                // Afficher le succès
+                submitBtn.textContent = '✓ Réservation confirmée!';
+                submitBtn.style.background = '#22c55e';
+                submitBtn.style.color = '#ffffff';
+                
+                const coachName = data.coach.charAt(0).toUpperCase() + data.coach.slice(1);
+                const dateFormatted = new Date(data.date).toLocaleDateString('fr-FR', { 
+                    weekday: 'long', 
+                    day: 'numeric', 
+                    month: 'long' 
+                });
+                
+                // Afficher un message de confirmation
+                const confirmationMessage = document.createElement('div');
+                confirmationMessage.className = 'confirmation-message';
+                confirmationMessage.innerHTML = `
+                    <div class="confirmation-content">
+                        <div class="confirmation-icon">✓</div>
+                        <h3>Réservation confirmée !</h3>
+                        <p>Votre séance avec <strong>${coachName}</strong> est réservée pour le <strong>${dateFormatted}</strong> à <strong>${data.heure}</strong>.</p>
+                        <p class="confirmation-info">📧 Un email avec le lien d'ajout au calendrier a été envoyé au coach.</p>
+                        <div class="confirmation-details">
+                            <span>⏱️ ${data.duree} min</span>
+                            <span>🎯 ${data.focusPoints.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', ')}</span>
+                        </div>
+                        <a href="${icsUrl}" download="seance-nomadrise.ics" class="btn btn-outline btn-calendar">
+                            📥 Télécharger le fichier calendrier (.ics)
+                        </a>
+                        <button class="btn btn-primary" onclick="window.location.reload();">
+                            Nouvelle réservation
+                        </button>
+                    </div>
+                `;
+                
+                document.querySelector('.reservation-grid').appendChild(confirmationMessage);
+                confirmationMessage.scrollIntoView({ behavior: 'smooth' });
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                submitBtn.textContent = 'Erreur - Réessayer';
+                submitBtn.style.background = '#ef4444';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

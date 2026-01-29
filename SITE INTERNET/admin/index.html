@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Nomad Rise</title>
+    
+    <!-- Netlify Identity Widget (pour l'authentification) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <style>
+        /* Style personnalisé pour l'interface admin */
+        [data-slate-editor] { 
+            -webkit-user-modify: read-write !important; 
+        }
+    </style>
+</head>
+<body>
+    <!-- L'interface Decap CMS sera injectée ici automatiquement -->
+    
+    <script>
+        // Configuration de l'aperçu personnalisé (optionnel)
+        CMS.registerPreviewStyle('/assets/css/main.css');
+    </script>
+</body>
+</html>
+

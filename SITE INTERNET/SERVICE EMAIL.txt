@@ -1,0 +1,10 @@
+Pour activer l'envoi d'emails, vous devez :
+
+Créer un compte gratuit sur emailjs.com
+Configurer un service email (Gmail, Outlook, etc.)
+Créer un template d'email
+Remplacer dans reservation.html les valeurs :
+VOTRE_PUBLIC_KEY
+VOTRE_SERVICE_ID
+VOTRE_TEMPLATE_ID
+Les emails des coachs (alexandre@nomadrise.com et clovis@nomadrise.com)

@@ -1,0 +1,83 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Fichier CSS Principal
+ * ============================================================================
+ * 
+ * Ce fichier importe tous les modules CSS du site.
+ * Il sert de point d'entrée unique pour les styles.
+ * 
+ * SOMMAIRE DES IMPORTS :
+ * ---------------------------------------------------------------------------
+ * 1. Base - Variables, Reset, Typographie, Utilitaires
+ * 2. Composants - Éléments réutilisables (Boutons, Nav, Forms...)
+ * 3. Pages - Styles spécifiques à chaque section/page
+ * 
+ * ORDRE D'IMPORT :
+ * L'ordre est important car CSS est cascadant. Les fichiers sont chargés
+ * dans cet ordre :
+ *   1. Base (fondations du design system)
+ *   2. Composants (éléments réutilisables)
+ *   3. Pages (styles spécifiques, peuvent override les précédents)
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. BASE
+   ==========================================================================
+   Fondations du design system : variables CSS, reset navigateur,
+   typographie globale et classes utilitaires.
+   ========================================================================== */
+
+@import url('base.css');
+
+
+/* ==========================================================================
+   2. COMPOSANTS
+   ==========================================================================
+   Éléments d'interface réutilisables sur tout le site :
+   boutons, navigation, formulaires, cartes, notifications...
+   ========================================================================== */
+
+@import url('components.css');
+
+
+/* ==========================================================================
+   3. PAGES
+   ==========================================================================
+   Styles spécifiques à chaque section ou page du site.
+   Chaque fichier gère une partie distincte de l'interface.
+   ========================================================================== */
+
+/* Page d'accueil - Section Hero (bannière principale) */
+@import url('pages/home.css');
+
+/* Vue d'ensemble des services (CAMP, FIT, TOUR) */
+@import url('pages/services.css');
+
+/* Section RISE CAMP - Stages basketball */
+@import url('pages/rise-camp.css');
+
+/* Section RISE FIT - Coaching individuel */
+@import url('pages/rise-fit.css');
+
+/* Section RISE TOUR - Voyages basketball */
+@import url('pages/rise-tour.css');
+
+/* Section Galerie photos */
+@import url('pages/galerie.css');
+
+/* Section Contact et Footer */
+@import url('pages/contact.css');
+
+/* Page de réservation (formulaire multi-étapes) */
+@import url('pages/reservation.css');
+
+
+/* ==========================================================================
+   FIN DU FICHIER PRINCIPAL
+   ==========================================================================
+   Note : Si vous ajoutez de nouvelles sections au site, créez un fichier
+   CSS dédié dans le dossier pages/ et importez-le ici.
+   ========================================================================== */

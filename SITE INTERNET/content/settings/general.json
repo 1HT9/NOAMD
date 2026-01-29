@@ -1,0 +1,13 @@
+{
+    "logo": "/img/logo site.png",
+    "contact": {
+        "email": "contact@nomadrise.fr",
+        "phone": "+33 6 00 00 00 00",
+        "location": "Paris, France"
+    },
+    "social": {
+        "instagram": "https://instagram.com/nomadrise",
+        "facebook": "https://facebook.com/nomadrise",
+        "twitter": ""
+    }
+}

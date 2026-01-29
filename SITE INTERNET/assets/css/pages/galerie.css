@@ -1,0 +1,597 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Section Galerie Photos
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Conteneur Principal
+ * 2. Filtres de Catégorie
+ * 3. Grille de Photos
+ * 4. Éléments de Photo
+ * 5. États de Chargement et Vide
+ * 6. Bouton "Voir Plus"
+ * 7. Lightbox (Visionneuse)
+ * 8. Responsive
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. CONTENEUR PRINCIPAL
+   ==========================================================================
+   La section galerie affiche les photos des différents événements.
+   ========================================================================== */
+
+.gallery-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #0a0a0a 100%);
+    padding: 6rem 0;
+    position: relative;
+}
+
+/* Ligne séparatrice subtile en haut */
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+
+/* ==========================================================================
+   2. FILTRES DE CATÉGORIE
+   ==========================================================================
+   Boutons permettant de filtrer les photos par catégorie.
+   ========================================================================== */
+
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+/* Piste contenant les boutons de filtre */
+.filter-track {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 60px;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+}
+
+/* Bouton de filtre individuel */
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.filter-btn .filter-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.filter-btn:hover {
+    color: var(--text-primary);
+}
+
+.filter-btn:hover .filter-icon {
+    transform: scale(1.2);
+}
+
+/* État actif du filtre */
+.filter-btn.active {
+    color: var(--bg-primary);
+    font-weight: 600;
+}
+
+/* Indicateur animé qui suit le bouton actif */
+.filter-indicator {
+    position: absolute;
+    height: calc(100% - 1rem);
+    top: 0.5rem;
+    left: 0.5rem;
+    background: #ffffff;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+    z-index: 0;
+}
+
+
+/* ==========================================================================
+   3. GRILLE DE PHOTOS
+   ==========================================================================
+   Disposition des photos en grille responsive.
+   ========================================================================== */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    min-height: 200px;
+}
+
+/* État de chargement de la grille */
+.gallery-grid.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   4. ÉLÉMENTS DE PHOTO
+   ==========================================================================
+   Cartes individuelles pour chaque photo.
+   ========================================================================== */
+
+.gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Image de la photo */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay au survol */
+.gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+/* Informations sur la photo */
+.gallery-item-info h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-item-info span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Icône de zoom au centre */
+.gallery-item-zoom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item:hover .gallery-item-zoom {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* ==========================================================================
+   5. ÉTATS DE CHARGEMENT ET VIDE
+   ==========================================================================
+   Affichage pendant le chargement ou quand il n'y a pas de photos.
+   ========================================================================== */
+
+/* État de chargement */
+.gallery-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    gap: 1.5rem;
+}
+
+.gallery-loading .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.gallery-loading p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* État vide (aucune photo) */
+.gallery-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+}
+
+.gallery-empty i {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.gallery-empty h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.gallery-empty p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+
+/* ==========================================================================
+   6. BOUTON "VOIR PLUS"
+   ==========================================================================
+   Bouton pour charger plus de photos.
+   ========================================================================== */
+
+.gallery-load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.load-more-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.load-more-btn:hover {
+    background: #ffffff;
+    color: #000;
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.load-more-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==========================================================================
+   7. LIGHTBOX (VISIONNEUSE)
+   ==========================================================================
+   Affichage plein écran d'une photo sélectionnée.
+   ========================================================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenu de la lightbox */
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+}
+
+.lightbox.active .lightbox-content img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Bouton de fermeture */
+.lightbox-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover {
+    background: #ffffff;
+    color: #000;
+    transform: rotate(90deg);
+}
+
+/* Boutons de navigation (précédent/suivant) */
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-nav:hover {
+    background: #ffffff;
+    color: #000;
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
+}
+
+/* Informations sur la photo en bas */
+.lightbox-info {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.lightbox-info span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+/* Compteur de photos */
+.lightbox-counter {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+
+/* ==========================================================================
+   8. RESPONSIVE
+   ==========================================================================
+   Adaptations pour les différentes tailles d'écran.
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: 4rem 0;
+    }
+
+    /* Filtres adaptés pour mobile */
+    .filter-track {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 20px;
+        gap: 0.25rem;
+        padding: 0.4rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+        gap: 0.3rem;
+    }
+
+    .filter-btn .filter-icon {
+        font-size: 0.9rem;
+    }
+
+    /* Indicateur caché sur mobile */
+    .filter-indicator {
+        display: none;
+    }
+
+    .filter-btn.active {
+        background: #ffffff;
+        color: #000;
+    }
+
+    /* Grille à 2 colonnes sur mobile */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .gallery-item {
+        border-radius: 12px;
+    }
+
+    .gallery-item-overlay {
+        padding: 1rem;
+    }
+
+    .gallery-item-info h4 {
+        font-size: 0.95rem;
+    }
+
+    .gallery-item-zoom {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    /* Lightbox mobile */
+    .lightbox-nav {
+        width: 45px;
+        height: 45px;
+    }
+
+    .lightbox-prev {
+        left: 1rem;
+    }
+
+    .lightbox-next {
+        right: 1rem;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-info {
+        bottom: 1rem;
+        padding: 0.75rem 1.5rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Grille à 1 colonne sur petits mobiles */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Filtres simplifiés (icônes seulement) */
+    .filter-btn {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .filter-btn span:not(.filter-icon) {
+        display: none;
+    }
+
+    .filter-btn .filter-icon {
+        font-size: 1.1rem;
+    }
+}

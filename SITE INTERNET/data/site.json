@@ -1,0 +1,101 @@
+{
+    "site": {
+        "name": "Nomad Rise",
+        "tagline": "Coaching Basketball Premium",
+        "description": "Élevez votre jeu avec des coachs expérimentés. Coaching individuel, camps intensifs et voyages basketball.",
+        "version": "2.0.0",
+        "language": "fr",
+        "locale": "fr-FR"
+    },
+    
+    "contact": {
+        "email": "contact@nomadrise.fr",
+        "phone": "+33 6 00 00 00 00",
+        "address": {
+            "city": "Paris",
+            "country": "France"
+        }
+    },
+    
+    "social": {
+        "instagram": "https://instagram.com/nomadrise",
+        "facebook": "https://facebook.com/nomadrise",
+        "youtube": "https://youtube.com/@nomadrise",
+        "tiktok": "https://tiktok.com/@nomadrise"
+    },
+    
+    "coaches": [
+        {
+            "id": "thomas",
+            "name": "Thomas",
+            "title": "Coach Principal",
+            "specialty": "Technique & Tactique",
+            "available": true,
+            "image": "img/coach-thomas.jpg"
+        },
+        {
+            "id": "nathan",
+            "name": "Nathan",
+            "title": "Coach Associé",
+            "specialty": "Physique & Mental",
+            "available": true,
+            "image": "img/coach-nathan.jpg"
+        }
+    ],
+    
+    "services": {
+        "camp": {
+            "id": "rise-camp",
+            "name": "RISE CAMP",
+            "description": "Stages intensifs pour progresser rapidement",
+            "duration": "1 semaine",
+            "features": [
+                "Entraînement intensif",
+                "Analyse vidéo",
+                "Petits groupes",
+                "Suivi personnalisé"
+            ]
+        },
+        "fit": {
+            "id": "rise-fit",
+            "name": "RISE FIT",
+            "description": "Coaching individuel personnalisé",
+            "durations": [
+                { "value": "1h", "skills": 1 },
+                { "value": "2h", "skills": 2 }
+            ],
+            "skills": [
+                { "id": "dribble", "name": "Dribble", "icon": "🏀" },
+                { "id": "shoot", "name": "Tir", "icon": "🎯" },
+                { "id": "defense", "name": "Défense", "icon": "🛡️" },
+                { "id": "passes", "name": "Passes", "icon": "🤝" },
+                { "id": "physique", "name": "Physique", "icon": "💪" },
+                { "id": "mental", "name": "Mental", "icon": "🧠" }
+            ]
+        },
+        "tour": {
+            "id": "rise-tour",
+            "name": "RISE TOUR",
+            "description": "Voyages basketball à l'étranger",
+            "destinations": [
+                { "country": "USA", "city": "Los Angeles", "flag": "🇺🇸" },
+                { "country": "Espagne", "city": "Madrid", "flag": "🇪🇸" }
+            ]
+        }
+    },
+    
+    "stats": {
+        "players": "500+",
+        "sessions": "2500+",
+        "satisfaction": "98%"
+    },
+    
+    "sessions": {
+        "camp_dates": [
+            "Juillet 2025",
+            "Août 2025",
+            "Toussaint 2025",
+            "Février 2026"
+        ]
+    }
+}

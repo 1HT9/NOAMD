@@ -1,0 +1,828 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Page de Réservation
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Conteneur Principal
+ * 2. Étapes de Réservation
+ * 3. Sélection du Coach
+ * 4. Sélection de la Durée
+ * 5. Sélection des Compétences
+ * 6. Sélection de la Date
+ * 7. Sélection de l'Horaire
+ * 8. Formulaire Personnel
+ * 9. Message de Confirmation
+ * 10. Responsive
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. CONTENEUR PRINCIPAL
+   ==========================================================================
+   Layout de la page de réservation.
+   ========================================================================== */
+
+.reservation-section {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    background: var(--gray-900);
+    min-height: 100vh;
+}
+
+.reservation-grid {
+    display: grid;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   2. ÉTAPES DE RÉSERVATION
+   ==========================================================================
+   Chaque bloc représente une étape du processus.
+   ========================================================================== */
+
+.reservation-step {
+    background: var(--gray-800);
+    border: 1px solid var(--gray-700);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.reservation-step h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   3. SÉLECTION DU COACH
+   ==========================================================================
+   Choix du coach pour la session.
+   ========================================================================== */
+
+.coach-selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.coach-option {
+    position: relative;
+}
+
+.coach-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.coach-option .coach-card {
+    background: var(--gray-700);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.coach-option input:checked + .coach-card {
+    border-color: var(--white);
+}
+
+.coach-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+}
+
+
+/* ==========================================================================
+   4. SÉLECTION DE LA DURÉE
+   ==========================================================================
+   Choix de la durée de la session (1h ou 2h).
+   ========================================================================== */
+
+.duration-selection {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.duration-option {
+    position: relative;
+}
+
+.duration-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.duration-card {
+    background: var(--gray-700);
+    border: 2px solid var(--gray-600);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.duration-card:hover {
+    border-color: var(--gray-400);
+    background: var(--gray-600);
+}
+
+.duration-option input:checked + .duration-card {
+    border-color: var(--white);
+    background: var(--gray-600);
+}
+
+.duration-time {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.duration-unit {
+    font-size: 1rem;
+    color: var(--gray-400);
+    font-weight: 500;
+}
+
+
+/* ==========================================================================
+   5. SÉLECTION DES COMPÉTENCES
+   ==========================================================================
+   Choix des compétences à travailler pendant la session.
+   ========================================================================== */
+
+.skills-section {
+    background: var(--gray-700);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.skills-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.skills-hint {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+/* État actif de la grille (quand une durée est sélectionnée) */
+.skills-grid.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.skill-card {
+    position: relative;
+}
+
+.skill-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.skill-content {
+    background: var(--gray-600);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-content:hover {
+    border-color: var(--gray-400);
+    background: var(--gray-500);
+}
+
+.skill-card input:checked + .skill-content {
+    border-color: var(--white);
+    background: var(--gray-500);
+}
+
+.skill-card.disabled .skill-content {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.skill-icon {
+    font-size: 2rem;
+}
+
+.skill-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.skill-desc {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+}
+
+
+/* ==========================================================================
+   6. SÉLECTION DE LA DATE
+   ==========================================================================
+   Choix de la date de la session.
+   ========================================================================== */
+
+.date-selection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.date-option {
+    position: relative;
+}
+
+.date-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.date-card {
+    background: var(--gray-700);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.date-option input:checked + .date-card {
+    border-color: var(--white);
+    background: var(--gray-600);
+}
+
+.date-card:hover {
+    background: var(--gray-600);
+}
+
+.date-day {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    text-transform: capitalize;
+}
+
+.date-num {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.date-month {
+    font-size: 0.8rem;
+    color: var(--gray-300);
+    text-transform: capitalize;
+}
+
+
+/* ==========================================================================
+   7. SÉLECTION DE L'HORAIRE
+   ==========================================================================
+   Choix de l'heure de la session.
+   ========================================================================== */
+
+.time-selection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.time-option {
+    position: relative;
+}
+
+.time-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.time-option span {
+    display: block;
+    background: var(--gray-700);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.time-option input:checked + span {
+    border-color: var(--white);
+    background: var(--gray-600);
+}
+
+
+/* ==========================================================================
+   8. FORMULAIRE PERSONNEL
+   ==========================================================================
+   Informations personnelles du client.
+   ========================================================================== */
+
+.personal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.personal-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.personal-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.personal-form label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.personal-form input,
+.personal-form select {
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.personal-form input:hover,
+.personal-form select:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.personal-form input:focus,
+.personal-form select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+.personal-form input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Select personnalisé pour l'année de naissance */
+.personal-form select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 3rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center;
+    background-size: 16px;
+}
+
+.personal-form select:focus {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.personal-form select option {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.personal-form select option:hover,
+.personal-form select option:focus,
+.personal-form select option:checked {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+/* Fix pour Firefox */
+.personal-form select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #fff;
+}
+
+/* Bouton de confirmation amélioré */
+.personal-form .btn-confirm,
+.personal-form .btn.btn-primary.btn-full {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.1rem 2rem;
+    background: linear-gradient(135deg, #fff 0%, #e5e5e5 100%);
+    color: #000;
+    border: none;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.personal-form .btn-confirm::before,
+.personal-form .btn.btn-primary.btn-full::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.personal-form .btn-confirm:hover,
+.personal-form .btn.btn-primary.btn-full:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 35px rgba(255, 255, 255, 0.15),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.personal-form .btn-confirm:hover::before,
+.personal-form .btn.btn-primary.btn-full:hover::before {
+    opacity: 1;
+}
+
+.personal-form .btn-confirm:active,
+.personal-form .btn.btn-primary.btn-full:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   9. MESSAGE DE CONFIRMATION
+   ==========================================================================
+   Affichage après une réservation réussie.
+   ========================================================================== */
+
+.confirmation-message {
+    background: var(--gray-800);
+    border: 2px solid #22c55e;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.confirmation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.confirmation-icon {
+    width: 60px;
+    height: 60px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.confirmation-content h3 {
+    color: #22c55e;
+    font-size: 1.5rem;
+}
+
+.confirmation-content p {
+    color: var(--gray-300);
+    line-height: 1.6;
+}
+
+.confirmation-info {
+    background: var(--gray-700);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+}
+
+.confirmation-details {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.confirmation-details span {
+    background: var(--gray-700);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    color: var(--white);
+}
+
+.btn-calendar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+
+/* ==========================================================================
+   10. RESPONSIVE
+   ==========================================================================
+   Adaptations pour les différentes tailles d'écran.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .reservation-section {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+    
+    .reservation-section .section-header {
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .reservation-section .section-header h2 {
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
+    }
+    
+    .reservation-section .section-header p {
+        font-size: 0.9rem;
+    }
+
+    .reservation-grid {
+        gap: 1.5rem;
+        padding: 0 0.25rem;
+    }
+    
+    .reservation-step {
+        padding: 1.25rem;
+        border-radius: 20px;
+    }
+    
+    .reservation-step h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .coach-selection {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+    
+    .coach-option .coach-card {
+        padding: 0.875rem;
+    }
+    
+    .coach-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .coach-option .coach-card h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .coach-option .coach-card p {
+        font-size: 0.7rem;
+    }
+
+    .time-selection {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .time-option span {
+        padding: 0.875rem;
+        font-size: 0.9rem;
+    }
+
+    .date-selection {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .date-card {
+        padding: 0.875rem;
+    }
+    
+    .date-num {
+        font-size: 1.5rem;
+    }
+    
+    .date-day, .date-month {
+        font-size: 0.7rem;
+    }
+
+    .personal-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .skill-content {
+        padding: 0.875rem 0.5rem;
+    }
+    
+    .skill-icon {
+        font-size: 1.5rem;
+    }
+    
+    .skill-name {
+        font-size: 0.8rem;
+    }
+    
+    .skill-desc {
+        font-size: 0.65rem;
+    }
+
+    .duration-selection {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+
+    .duration-card {
+        width: auto;
+        flex: 1;
+        max-width: none;
+        padding: 1.25rem 1rem;
+        justify-content: center;
+    }
+    
+    .duration-time {
+        font-size: 2rem;
+    }
+    
+    .duration-unit {
+        font-size: 0.875rem;
+    }
+    
+    .skills-section {
+        padding: 1rem;
+    }
+    
+    .skills-title {
+        font-size: 0.9rem;
+    }
+    
+    .skills-hint {
+        font-size: 0.8rem;
+    }
+
+    .personal-form input,
+    .personal-form select {
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .personal-form .btn-confirm,
+    .personal-form .btn.btn-primary.btn-full {
+        border-radius: 14px;
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .confirmation-message {
+        padding: 1.5rem;
+    }
+    
+    .confirmation-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .confirmation-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .confirmation-details {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reservation-section {
+        padding-top: 5rem;
+    }
+    
+    .reservation-step {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+    
+    .reservation-step h3 {
+        font-size: 1rem;
+    }
+    
+    .coach-selection {
+        grid-template-columns: 1fr;
+    }
+    
+    .coach-option .coach-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+    }
+    
+    .coach-img {
+        margin-bottom: 0;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-content {
+        flex-direction: row;
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .skill-icon {
+        font-size: 1.75rem;
+    }
+    
+    .date-selection {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .date-card {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .date-num {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,474 @@
+{
+  "generated": "2026-01-15T21:17:40.380Z",
+  "total": 41,
+  "categories": [
+    {
+      "id": "camps",
+      "label": "Camps",
+      "count": 41
+    },
+    {
+      "id": "tournois",
+      "label": "Tournois",
+      "count": 0
+    },
+    {
+      "id": "coaching",
+      "label": "Coaching",
+      "count": 0
+    }
+  ],
+  "photos": [
+    {
+      "id": "camps-direct-0",
+      "url": "photos/camps/CAMP.JPG",
+      "thumbnail": "photos/camps/CAMP.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "CAMP.JPG",
+      "size": 368
+    },
+    {
+      "id": "camps-direct-1",
+      "url": "photos/camps/CAMPS2.JPG",
+      "thumbnail": "photos/camps/CAMPS2.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "CAMPS2.JPG",
+      "size": 454
+    },
+    {
+      "id": "camps-direct-2",
+      "url": "photos/camps/IMG_2313.JPG",
+      "thumbnail": "photos/camps/IMG_2313.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2313.JPG",
+      "size": 343
+    },
+    {
+      "id": "camps-direct-3",
+      "url": "photos/camps/IMG_2314.JPG",
+      "thumbnail": "photos/camps/IMG_2314.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2314.JPG",
+      "size": 343
+    },
+    {
+      "id": "camps-direct-4",
+      "url": "photos/camps/IMG_2315.JPG",
+      "thumbnail": "photos/camps/IMG_2315.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2315.JPG",
+      "size": 377
+    },
+    {
+      "id": "camps-direct-5",
+      "url": "photos/camps/IMG_2316.JPG",
+      "thumbnail": "photos/camps/IMG_2316.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2316.JPG",
+      "size": 338
+    },
+    {
+      "id": "camps-direct-6",
+      "url": "photos/camps/IMG_2317.JPG",
+      "thumbnail": "photos/camps/IMG_2317.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2317.JPG",
+      "size": 347
+    },
+    {
+      "id": "camps-direct-7",
+      "url": "photos/camps/IMG_2318.JPG",
+      "thumbnail": "photos/camps/IMG_2318.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2318.JPG",
+      "size": 334
+    },
+    {
+      "id": "camps-direct-8",
+      "url": "photos/camps/IMG_2319.JPG",
+      "thumbnail": "photos/camps/IMG_2319.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2319.JPG",
+      "size": 357
+    },
+    {
+      "id": "camps-direct-9",
+      "url": "photos/camps/IMG_2320.JPG",
+      "thumbnail": "photos/camps/IMG_2320.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2320.JPG",
+      "size": 350
+    },
+    {
+      "id": "camps-direct-10",
+      "url": "photos/camps/IMG_2321.JPG",
+      "thumbnail": "photos/camps/IMG_2321.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2321.JPG",
+      "size": 342
+    },
+    {
+      "id": "camps-direct-11",
+      "url": "photos/camps/IMG_2322.JPG",
+      "thumbnail": "photos/camps/IMG_2322.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2322.JPG",
+      "size": 351
+    },
+    {
+      "id": "camps-direct-12",
+      "url": "photos/camps/IMG_2323.JPG",
+      "thumbnail": "photos/camps/IMG_2323.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2323.JPG",
+      "size": 369
+    },
+    {
+      "id": "camps-direct-13",
+      "url": "photos/camps/IMG_2324.JPG",
+      "thumbnail": "photos/camps/IMG_2324.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2324.JPG",
+      "size": 361
+    },
+    {
+      "id": "camps-direct-14",
+      "url": "photos/camps/IMG_2325.JPG",
+      "thumbnail": "photos/camps/IMG_2325.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2325.JPG",
+      "size": 348
+    },
+    {
+      "id": "camps-direct-15",
+      "url": "photos/camps/IMG_2326.JPG",
+      "thumbnail": "photos/camps/IMG_2326.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2326.JPG",
+      "size": 354
+    },
+    {
+      "id": "camps-direct-16",
+      "url": "photos/camps/IMG_2327.JPG",
+      "thumbnail": "photos/camps/IMG_2327.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2327.JPG",
+      "size": 353
+    },
+    {
+      "id": "camps-direct-17",
+      "url": "photos/camps/IMG_2328.JPG",
+      "thumbnail": "photos/camps/IMG_2328.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2328.JPG",
+      "size": 328
+    },
+    {
+      "id": "camps-direct-18",
+      "url": "photos/camps/IMG_2329.JPG",
+      "thumbnail": "photos/camps/IMG_2329.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2329.JPG",
+      "size": 341
+    },
+    {
+      "id": "camps-direct-19",
+      "url": "photos/camps/IMG_2330.JPG",
+      "thumbnail": "photos/camps/IMG_2330.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2330.JPG",
+      "size": 343
+    },
+    {
+      "id": "camps-direct-20",
+      "url": "photos/camps/IMG_2331.JPG",
+      "thumbnail": "photos/camps/IMG_2331.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2331.JPG",
+      "size": 374
+    },
+    {
+      "id": "camps-direct-21",
+      "url": "photos/camps/IMG_2332.JPG",
+      "thumbnail": "photos/camps/IMG_2332.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2332.JPG",
+      "size": 356
+    },
+    {
+      "id": "camps-direct-22",
+      "url": "photos/camps/IMG_2333.JPG",
+      "thumbnail": "photos/camps/IMG_2333.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2333.JPG",
+      "size": 339
+    },
+    {
+      "id": "camps-direct-23",
+      "url": "photos/camps/IMG_2334.JPG",
+      "thumbnail": "photos/camps/IMG_2334.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2334.JPG",
+      "size": 361
+    },
+    {
+      "id": "camps-direct-24",
+      "url": "photos/camps/IMG_2335.JPG",
+      "thumbnail": "photos/camps/IMG_2335.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2335.JPG",
+      "size": 336
+    },
+    {
+      "id": "camps-direct-25",
+      "url": "photos/camps/IMG_2336.JPG",
+      "thumbnail": "photos/camps/IMG_2336.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2336.JPG",
+      "size": 345
+    },
+    {
+      "id": "camps-direct-26",
+      "url": "photos/camps/IMG_2337.JPG",
+      "thumbnail": "photos/camps/IMG_2337.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2337.JPG",
+      "size": 362
+    },
+    {
+      "id": "camps-direct-27",
+      "url": "photos/camps/IMG_2338.JPG",
+      "thumbnail": "photos/camps/IMG_2338.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2338.JPG",
+      "size": 364
+    },
+    {
+      "id": "camps-direct-28",
+      "url": "photos/camps/IMG_2339.JPG",
+      "thumbnail": "photos/camps/IMG_2339.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2339.JPG",
+      "size": 371
+    },
+    {
+      "id": "camps-direct-29",
+      "url": "photos/camps/IMG_2340.JPG",
+      "thumbnail": "photos/camps/IMG_2340.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2340.JPG",
+      "size": 360
+    },
+    {
+      "id": "camps-direct-30",
+      "url": "photos/camps/IMG_2341.JPG",
+      "thumbnail": "photos/camps/IMG_2341.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2341.JPG",
+      "size": 338
+    },
+    {
+      "id": "camps-direct-31",
+      "url": "photos/camps/IMG_2342.JPG",
+      "thumbnail": "photos/camps/IMG_2342.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2342.JPG",
+      "size": 371
+    },
+    {
+      "id": "camps-direct-32",
+      "url": "photos/camps/IMG_2343.JPG",
+      "thumbnail": "photos/camps/IMG_2343.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2343.JPG",
+      "size": 375
+    },
+    {
+      "id": "camps-direct-33",
+      "url": "photos/camps/IMG_2344.JPG",
+      "thumbnail": "photos/camps/IMG_2344.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2344.JPG",
+      "size": 362
+    },
+    {
+      "id": "camps-direct-34",
+      "url": "photos/camps/IMG_2345.JPG",
+      "thumbnail": "photos/camps/IMG_2345.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2345.JPG",
+      "size": 361
+    },
+    {
+      "id": "camps-direct-35",
+      "url": "photos/camps/IMG_2351.JPG",
+      "thumbnail": "photos/camps/IMG_2351.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2351.JPG",
+      "size": 369
+    },
+    {
+      "id": "camps-direct-36",
+      "url": "photos/camps/IMG_2352.JPG",
+      "thumbnail": "photos/camps/IMG_2352.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2352.JPG",
+      "size": 374
+    },
+    {
+      "id": "camps-direct-37",
+      "url": "photos/camps/IMG_2353.JPG",
+      "thumbnail": "photos/camps/IMG_2353.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2353.JPG",
+      "size": 348
+    },
+    {
+      "id": "camps-direct-38",
+      "url": "photos/camps/IMG_2354.JPG",
+      "thumbnail": "photos/camps/IMG_2354.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2354.JPG",
+      "size": 342
+    },
+    {
+      "id": "camps-direct-39",
+      "url": "photos/camps/IMG_2362.JPG",
+      "thumbnail": "photos/camps/IMG_2362.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2362.JPG",
+      "size": 354
+    },
+    {
+      "id": "camps-direct-40",
+      "url": "photos/camps/IMG_2370.JPG",
+      "thumbnail": "photos/camps/IMG_2370.JPG",
+      "category": "camps",
+      "categoryLabel": "Camps",
+      "date": "2026-01-15",
+      "event": "Camps",
+      "filename": "IMG_2370.JPG",
+      "size": 338
+    }
+  ]
+}

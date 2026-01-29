@@ -1,0 +1,25 @@
+{
+    "title": "COACHING HAUTE PRÉCISION",
+    "description": "Un accompagnement personnalisé pour atteindre vos objectifs spécifiques. Nos coachs analysent votre jeu et créent un programme sur mesure.",
+    "team_image": "/assets/uploads/team-training.jpg",
+    "team_title": "Thomas & Nathan",
+    "team_description": "Coachs expérimentés spécialisés dans le développement individuel",
+    "availability": "Disponible vendredi midi",
+    "benefits": [
+        {
+            "icon": "🎯",
+            "title": "Personnalisé",
+            "description": "Programme adapté à vos objectifs et votre niveau"
+        },
+        {
+            "icon": "📹",
+            "title": "Analyse vidéo",
+            "description": "Débriefing détaillé après chaque session"
+        },
+        {
+            "icon": "📈",
+            "title": "Progression garantie",
+            "description": "Suivi de vos progrès sur le long terme"
+        }
+    ]
+}

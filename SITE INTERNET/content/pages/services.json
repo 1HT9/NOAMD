@@ -1,0 +1,42 @@
+{
+    "title": "Une progression structurée",
+    "subtitle": "Quatre formats pour un plan de progression clair et ambitieux.",
+    "items": [
+        {
+            "number": "01",
+            "icon": "🏀",
+            "name": "RISE CAMP",
+            "description": "Stages intensifs pour progresser rapidement avec un encadrement professionnel",
+            "tag1": "Intensif",
+            "tag2": "1 semaine",
+            "link": "#rise-camp"
+        },
+        {
+            "number": "02",
+            "icon": "❤️",
+            "name": "RISE FIT",
+            "description": "Basketball santé et bien-être pour tous les niveaux et tous les âges",
+            "tag1": "Santé",
+            "tag2": "Tous niveaux",
+            "link": "#rise-fit"
+        },
+        {
+            "number": "03",
+            "icon": "⚡",
+            "name": "NOMAD TRAINING",
+            "description": "Coaching individuel haute précision pour atteindre vos objectifs",
+            "tag1": "Premium",
+            "tag2": "Personnalisé",
+            "link": "#nomad-training"
+        },
+        {
+            "number": "04",
+            "icon": "✈️",
+            "name": "RISE TOUR",
+            "description": "Représentez Nomad Rise lors de tournois internationaux en Europe",
+            "tag1": "International",
+            "tag2": "Compétition",
+            "link": "#rise-tour"
+        }
+    ]
+}

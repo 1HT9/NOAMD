@@ -1,0 +1,23 @@
+{
+    "slogan": "BOUGER MIEUX, VIVRE MIEUX",
+    "intro": "RISE FIT propose une approche du basketball centrée sur le bien-être et la santé. Accessible à tous, peu importe votre niveau ou votre âge.",
+    "objective": "Notre objectif : vous faire découvrir les bienfaits du sport tout en passant un moment convivial et énergisant.",
+    "benefits": [
+        {
+            "icon": "❤️",
+            "title": "Santé & Bien-être",
+            "description": "Des exercices adaptés pour améliorer votre condition physique en douceur"
+        },
+        {
+            "icon": "🤝",
+            "title": "Ambiance conviviale",
+            "description": "Un cadre bienveillant où chacun progresse à son rythme"
+        },
+        {
+            "icon": "🎯",
+            "title": "Accessible à tous",
+            "description": "Débutants comme confirmés, tous les âges sont les bienvenus"
+        }
+    ],
+    "schedule": "TOUS LES VENDREDIS"
+}

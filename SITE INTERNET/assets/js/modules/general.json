@@ -1,0 +1,13 @@
+{
+  "logo": "/img/logo site.png",
+  "contact": {
+    "email": "contact@nomadrise.fr",
+    "phone": "+33 6 XX XX XX XX",
+    "location": "France"
+  },
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "twitter": ""
+  }
+}

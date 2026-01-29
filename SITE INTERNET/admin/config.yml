@@ -1,0 +1,348 @@
+# ============================================================================
+# CONFIGURATION DECAP CMS - NOMAD RISE
+# ============================================================================
+
+# Backend : Authentification via Netlify Identity
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Création : {{collection}} "{{slug}}"'
+    update: 'Modification : {{collection}} "{{slug}}"'
+    delete: 'Suppression : {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload image : {{path}}'
+    deleteMedia: 'Suppression image : {{path}}'
+
+# DÉCOMMENTER LA LIGNE CI-DESSOUS POUR TESTER EN LOCAL (sans Netlify)
+# Puis lancez : npx decap-server
+# local_backend: true
+
+# Langue de l'interface
+locale: 'fr'
+
+# Dossier des images uploadées
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Activer le mode éditorial (brouillon/révision/publié)
+publish_mode: editorial_workflow
+
+# Logo dans l'admin
+logo_url: "/img/logo site.png"
+
+# ============================================================================
+# COLLECTIONS (Types de contenu)
+# ============================================================================
+
+collections:
+
+  # --------------------------------------------------------------------------
+  # PARAMÈTRES GÉNÉRAUX
+  # --------------------------------------------------------------------------
+  - name: "settings"
+    label: "Parametres du site"
+    files:
+      - name: "general"
+        label: "Parametres generaux"
+        file: "content/settings/general.json"
+        fields:
+          - label: "Logo du site"
+            name: "logo"
+            widget: "image"
+            required: true
+            hint: "Format recommande : PNG transparent, 200x80px minimum"
+          
+          - label: "Informations de contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Telephone", name: "phone", widget: "string" }
+              - { label: "Localisation", name: "location", widget: "string" }
+          
+          - label: "Reseaux sociaux"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Twitter/X", name: "twitter", widget: "string", required: false }
+
+  # --------------------------------------------------------------------------
+  # PAGE D'ACCUEIL (HERO)
+  # --------------------------------------------------------------------------
+  - name: "home"
+    label: "Page accueil"
+    files:
+      - name: "hero"
+        label: "Section Hero (Banniere principale)"
+        file: "content/pages/home.json"
+        fields:
+          - label: "Badge (petit texte au-dessus du titre)"
+            name: "badge"
+            widget: "string"
+            default: "PROGRAMME 2026 - ELITE DEVELOPMENT"
+          
+          - label: "Titre principal (ligne 1)"
+            name: "title_line1"
+            widget: "string"
+            default: "S EMANCIPER PAR LA"
+          
+          - label: "Titre principal (ligne 2 - en degrade)"
+            name: "title_line2"
+            widget: "string"
+            default: "PERFORMANCE ET L INCLUSION"
+          
+          - label: "Sous-titre"
+            name: "subtitle"
+            widget: "text"
+          
+          - label: "Bouton principal"
+            name: "cta_primary"
+            widget: "object"
+            fields:
+              - { label: "Texte du bouton", name: "text", widget: "string", default: "DECOUVRIR NOS PROGRAMMES" }
+              - { label: "Lien", name: "link", widget: "string", default: "#services" }
+          
+          - label: "Bouton secondaire"
+            name: "cta_secondary"
+            widget: "object"
+            fields:
+              - { label: "Texte du bouton", name: "text", widget: "string", default: "PARLER A UN COACH" }
+              - { label: "Lien", name: "link", widget: "string", default: "#contact" }
+
+  # --------------------------------------------------------------------------
+  # SERVICES
+  # --------------------------------------------------------------------------
+  - name: "services"
+    label: "Services"
+    files:
+      - name: "overview"
+        label: "Vue d ensemble des services"
+        file: "content/pages/services.json"
+        fields:
+          - label: "Titre de la section"
+            name: "title"
+            widget: "string"
+            default: "Une progression structuree"
+          
+          - label: "Sous-titre"
+            name: "subtitle"
+            widget: "string"
+            default: "Quatre formats pour un plan de progression clair et ambitieux."
+          
+          - label: "Services"
+            name: "items"
+            widget: "list"
+            max: 4
+            fields:
+              - { label: "Numero", name: "number", widget: "string" }
+              - { label: "Icone (emoji)", name: "icon", widget: "string" }
+              - { label: "Nom du service", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Tag 1", name: "tag1", widget: "string" }
+              - { label: "Tag 2", name: "tag2", widget: "string" }
+              - { label: "Lien", name: "link", widget: "string" }
+
+  # --------------------------------------------------------------------------
+  # RISE CAMP
+  # --------------------------------------------------------------------------
+  - name: "camp"
+    label: "Rise Camp"
+    files:
+      - name: "content"
+        label: "Contenu Rise Camp"
+        file: "content/pages/camp.json"
+        fields:
+          - label: "Titre"
+            name: "title"
+            widget: "string"
+            default: "INTENSITE, STRUCTURE, RESULTATS"
+          
+          - label: "Sous-titre"
+            name: "subtitle"
+            widget: "text"
+          
+          - label: "Image principale"
+            name: "image"
+            widget: "image"
+          
+          - label: "Statistiques"
+            name: "stats"
+            widget: "list"
+            max: 2
+            fields:
+              - { label: "Chiffre", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          
+          - label: "Points forts"
+            name: "features"
+            widget: "list"
+            max: 4
+            fields:
+              - { label: "Icone (emoji)", name: "icon", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+          
+          - label: "Sessions disponibles"
+            name: "sessions"
+            widget: "list"
+            fields:
+              - { label: "Nom de la periode", name: "name", widget: "string" }
+              - { label: "Lien", name: "link", widget: "string", default: "#contact" }
+          
+          - label: "Bouton CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "Lien", name: "link", widget: "string" }
+
+  # --------------------------------------------------------------------------
+  # RISE FIT
+  # --------------------------------------------------------------------------
+  - name: "fit"
+    label: "Rise Fit"
+    files:
+      - name: "content"
+        label: "Contenu Rise Fit"
+        file: "content/pages/fit.json"
+        fields:
+          - label: "Slogan"
+            name: "slogan"
+            widget: "string"
+            default: "BOUGER MIEUX, VIVRE MIEUX"
+          
+          - label: "Introduction"
+            name: "intro"
+            widget: "text"
+          
+          - label: "Objectif"
+            name: "objective"
+            widget: "text"
+          
+          - label: "Avantages"
+            name: "benefits"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Icone (emoji)", name: "icon", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+          
+          - label: "Horaire"
+            name: "schedule"
+            widget: "string"
+            default: "TOUS LES VENDREDIS"
+
+  # --------------------------------------------------------------------------
+  # NOMAD TRAINING
+  # --------------------------------------------------------------------------
+  - name: "training"
+    label: "Nomad Training"
+    files:
+      - name: "content"
+        label: "Contenu Nomad Training"
+        file: "content/pages/training.json"
+        fields:
+          - label: "Titre"
+            name: "title"
+            widget: "string"
+            default: "COACHING HAUTE PRECISION"
+          
+          - label: "Description"
+            name: "description"
+            widget: "text"
+          
+          - label: "Image de l equipe"
+            name: "team_image"
+            widget: "image"
+          
+          - label: "Titre equipe"
+            name: "team_title"
+            widget: "string"
+          
+          - label: "Description equipe"
+            name: "team_description"
+            widget: "string"
+          
+          - label: "Disponibilite"
+            name: "availability"
+            widget: "string"
+            default: "Disponible vendredi midi"
+          
+          - label: "Avantages"
+            name: "benefits"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Icone (emoji)", name: "icon", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+
+  # --------------------------------------------------------------------------
+  # RISE TOUR
+  # --------------------------------------------------------------------------
+  - name: "tour"
+    label: "Rise Tour"
+    files:
+      - name: "content"
+        label: "Contenu Rise Tour"
+        file: "content/pages/tour.json"
+        fields:
+          - label: "Titre"
+            name: "title"
+            widget: "string"
+            default: "REPRESENTE NOMAD RISE EN EUROPE"
+          
+          - label: "Introduction"
+            name: "intro"
+            widget: "text"
+          
+          - label: "Dates de detection"
+            name: "detection_dates"
+            widget: "list"
+            fields:
+              - { label: "Mois", name: "month", widget: "string" }
+              - { label: "Info", name: "info", widget: "string" }
+          
+          - label: "Tournois"
+            name: "tournaments"
+            widget: "list"
+            fields:
+              - { label: "Mois", name: "month", widget: "string" }
+              - { label: "Annee", name: "year", widget: "string" }
+              - { label: "Drapeau (emoji)", name: "flag", widget: "string" }
+              - { label: "Ville", name: "city", widget: "string" }
+              - { label: "Pays", name: "country", widget: "string" }
+              - { label: "Statut", name: "status", widget: "select", options: ["Pre-inscriptions", "A venir", "Complet"] }
+          
+          - label: "Avantages"
+            name: "benefits"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Icone (emoji)", name: "icon", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+
+  # --------------------------------------------------------------------------
+  # GALERIE PHOTOS
+  # --------------------------------------------------------------------------
+  - name: "gallery"
+    label: "Galerie photos"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - label: "Categorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Camps", value: "camps" }
+          - { label: "Tournois", value: "tournois" }
+          - { label: "Coaching", value: "coaching" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description (optionnel)", name: "description", widget: "text", required: false }

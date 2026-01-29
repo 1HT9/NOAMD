@@ -1,0 +1,313 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Page d'Accueil (Hero Section)
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Section Hero (Bannière principale)
+ * 2. Contenu Hero (Texte, Boutons, Stats)
+ * 3. Animation de Scroll
+ * 4. Responsive
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. SECTION HERO
+   ==========================================================================
+   La bannière principale en haut de la page d'accueil.
+   Affiche le message principal et les appels à l'action.
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    overflow: hidden;
+    background: var(--gray-900);
+}
+
+/* Overlay avec dégradés subtils pour donner de la profondeur */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        linear-gradient(180deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    pointer-events: none;
+}
+
+/* Grille pour layout hero (si utilisée) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+
+/* ==========================================================================
+   2. CONTENU HERO
+   ==========================================================================
+   Le contenu textuel et les boutons du hero.
+   ========================================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+/* Contenu centré (version actuelle) */
+.hero-content-centered {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-content-centered h1 {
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+/* Sous-titre du hero */
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray-300);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+/* Badge au-dessus du titre */
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.1em;
+    backdrop-filter: blur(10px);
+}
+
+/* Zone de texte du hero */
+.hero-text h1 {
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+}
+
+.hero-text p {
+    font-size: 1.125rem;
+    color: var(--gray-300);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+/* Groupe de boutons CTA */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+/* Statistiques en bas du hero */
+.hero-stats {
+    display: flex;
+    gap: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-700);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    margin-top: 0.25rem;
+}
+
+
+/* ==========================================================================
+   3. ANIMATION DE SCROLL
+   ==========================================================================
+   Indicateur animé invitant l'utilisateur à scroller.
+   ========================================================================== */
+
+.hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--gray-400);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gray-400), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0%, 100% { opacity: 0.3; height: 60px; }
+    50% { opacity: 1; height: 80px; }
+}
+
+
+/* ==========================================================================
+   4. RESPONSIVE
+   ==========================================================================
+   Adaptations pour les écrans plus petits.
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .hero {
+        padding-top: 100px;
+    }
+    
+    .hero-content-centered h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 90px;
+        min-height: calc(100vh - 60px);
+        padding-bottom: 3rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-content-centered {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-content-centered h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        line-height: 1.15;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 80px;
+    }
+    
+    .hero-content-centered h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+/* Fix pour les écrans très larges mais courts (landscape mobile) */
+@media (max-height: 700px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 2rem;
+    }
+    
+    .hero-content-centered h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+}

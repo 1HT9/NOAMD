@@ -1,0 +1,57 @@
+{
+    "title": "REPRÉSENTE NOMAD RISE EN EUROPE",
+    "intro": "Vivez une expérience unique en participant à des tournois internationaux avec l'équipe Nomad Rise. Une opportunité de vous mesurer aux meilleurs joueurs européens.",
+    "detection_dates": [
+        {
+            "month": "Mars 2026",
+            "info": "Détection Paris"
+        },
+        {
+            "month": "Avril 2026",
+            "info": "Détection Lyon"
+        }
+    ],
+    "tournaments": [
+        {
+            "month": "Juin",
+            "year": "2026",
+            "flag": "🇪🇸",
+            "city": "Barcelone",
+            "country": "Espagne",
+            "status": "Pré-inscriptions"
+        },
+        {
+            "month": "Juillet",
+            "year": "2026",
+            "flag": "🇮🇹",
+            "city": "Rome",
+            "country": "Italie",
+            "status": "À venir"
+        },
+        {
+            "month": "Août",
+            "year": "2026",
+            "flag": "🇩🇪",
+            "city": "Berlin",
+            "country": "Allemagne",
+            "status": "À venir"
+        }
+    ],
+    "benefits": [
+        {
+            "icon": "🌍",
+            "title": "Expérience internationale",
+            "description": "Découvrez le basketball européen et affrontez des équipes de haut niveau"
+        },
+        {
+            "icon": "🏆",
+            "title": "Compétition élite",
+            "description": "Participez à des tournois reconnus sur la scène européenne"
+        },
+        {
+            "icon": "👥",
+            "title": "Encadrement complet",
+            "description": "Voyage, hébergement et coaching inclus dans chaque expédition"
+        }
+    ]
+}

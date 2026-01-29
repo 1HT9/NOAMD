@@ -1,0 +1,309 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Section Services (Vue d'ensemble)
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Container Services
+ * 2. Grille de Services
+ * 3. Cartes de Service
+ * 4. Tags et Badges
+ * 5. Responsive
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. CONTAINER SERVICES
+   ==========================================================================
+   Conteneur principal pour la section présentant les services.
+   ========================================================================== */
+
+.services-overview {
+    background: linear-gradient(180deg, var(--gray-900) 0%, #0d0d0d 100%);
+    position: relative;
+    padding: 5rem 0;
+    overflow: hidden;
+}
+
+/* Effet de fond subtil */
+.services-overview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+.services-overview .section-header {
+    margin-bottom: 3rem;
+}
+
+.services-overview .section-header h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.services-overview .section-header p {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+
+/* ==========================================================================
+   2. GRILLE DE SERVICES
+   ==========================================================================
+   Layout en grille pour afficher les services principaux.
+   ========================================================================== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Grille 4 colonnes pour 4 services */
+.services-grid.services-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+}
+
+
+/* ==========================================================================
+   3. CARTES DE SERVICE
+   ==========================================================================
+   Cartes individuelles présentant chaque service (Camp, Fit, Tour).
+   ========================================================================== */
+
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.75rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+/* Effet de brillance au survol */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.03),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+/* État au survol */
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+}
+
+/* Carte mise en avant (featured) */
+.service-card.featured {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.service-card.featured:hover {
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 100%);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Numéro de service (01, 02, 03) */
+.service-number {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+}
+
+/* Icône du service */
+.service-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* Titre de la carte */
+.service-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+    color: var(--white);
+}
+
+/* Description de la carte */
+.service-card p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+
+/* ==========================================================================
+   4. TAGS ET BADGES
+   ==========================================================================
+   Étiquettes pour catégoriser ou mettre en avant certains services.
+   ========================================================================== */
+
+.service-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .tag {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ==========================================================================
+   Adaptations pour tablettes et mobiles.
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+    .services-grid.services-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .services-grid.services-grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+    
+    .services-overview {
+        padding: 3.5rem 0;
+    }
+    
+    .services-overview .section-header {
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .services-overview .section-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .services-overview .section-header p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        padding: 1.25rem;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .service-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    
+    .service-card h3 {
+        font-size: 0.95rem;
+    }
+    
+    .service-card p {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .service-number {
+        display: none;
+    }
+    
+    .service-tags {
+        gap: 0.375rem;
+    }
+    
+    .tag {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-overview {
+        padding: 3rem 0;
+    }
+    
+    .service-card {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+}

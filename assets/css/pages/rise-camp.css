@@ -1,0 +1,679 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Section RISE CAMP
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Conteneur Principal et Éléments de Fond
+ * 2. En-tête de Section
+ * 3. Grille Camp (Image + Caractéristiques)
+ * 4. Carte Image Principale
+ * 5. Statistiques Overlay
+ * 6. Cartes de Caractéristiques
+ * 7. Sessions (Chips de Dates)
+ * 8. Appel à l'Action (CTA)
+ * 9. Responsive
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. CONTENEUR PRINCIPAL ET ÉLÉMENTS DE FOND
+   ==========================================================================
+   Mise en page générale de la section et effets visuels de fond.
+   ========================================================================== */
+
+.camp-section-new {
+    background: linear-gradient(180deg, #0a0a0a 0%, var(--bg-primary) 50%, #0a0a0a 100%);
+    padding: 7rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Conteneur pour les éléments décoratifs de fond */
+.camp-bg-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Orbes flous animés en arrière-plan */
+.camp-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+}
+
+.camp-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    top: -200px;
+    right: -100px;
+    animation: floatOrb 15s ease-in-out infinite;
+}
+
+.camp-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
+    bottom: -150px;
+    left: -100px;
+    animation: floatOrb 12s ease-in-out infinite reverse;
+}
+
+@keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+/* Grille de lignes subtiles */
+.camp-lines {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+
+/* ==========================================================================
+   2. EN-TÊTE DE SECTION
+   ==========================================================================
+   Titre et sous-titre de la section RISE CAMP.
+   ========================================================================== */
+
+.camp-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.camp-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   3. GRILLE CAMP (IMAGE + CARACTÉRISTIQUES)
+   ==========================================================================
+   Layout à 2 colonnes : grande image à gauche, caractéristiques à droite.
+   ========================================================================== */
+
+.camp-grid-new {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==========================================================================
+   4. CARTE IMAGE PRINCIPALE
+   ==========================================================================
+   Grande carte contenant l'image principale du camp avec overlay.
+   ========================================================================== */
+
+.camp-card-main {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 450px;
+}
+
+.camp-card-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.camp-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 24px;
+    transition: transform 0.6s ease;
+    background: rgba(0,0,0,0.3);
+}
+
+.camp-card-main:hover .camp-main-image {
+    transform: scale(1.02);
+}
+
+/* Overlay dégradé en bas de l'image pour les stats */
+.camp-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
+    border-radius: 0 0 24px 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 140px;
+}
+
+
+/* ==========================================================================
+   5. STATISTIQUES OVERLAY
+   ==========================================================================
+   Statistiques affichées en superposition sur l'image du camp.
+   ========================================================================== */
+
+.camp-stats-row {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.camp-stat-item {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.camp-stat-item .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.camp-stat-item .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ==========================================================================
+   6. CARTES DE CARACTÉRISTIQUES
+   ==========================================================================
+   Petites cartes présentant les points forts du camp.
+   ========================================================================== */
+
+.camp-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.camp-feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 1.75rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ligne animée apparaissant au survol */
+.camp-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fff, rgba(255,255,255,0.5));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.camp-feature-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.camp-feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Icône de la caractéristique */
+.feature-card-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.camp-feature-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.camp-feature-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   7. SESSIONS (CHIPS DE DATES)
+   ==========================================================================
+   Liste de dates de sessions disponibles sous forme de chips.
+   ========================================================================== */
+
+.camp-sessions {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sessions-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.sessions-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.session-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.session-chip:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Session chip cliquable */
+.session-chip-link {
+    cursor: pointer;
+}
+
+.session-chip-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Point indicateur animé */
+.chip-dot {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+
+/* ==========================================================================
+   8. APPEL À L'ACTION (CTA)
+   ==========================================================================
+   Bouton d'action centré en bas de la section.
+   ========================================================================== */
+
+.camp-cta {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.camp-cta .btn span {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.camp-cta .btn:hover span {
+    transform: translateX(5px);
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE
+   ==========================================================================
+   Adaptations pour les différentes tailles d'écran.
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .camp-grid-new {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .camp-card-main {
+        min-height: 300px;
+    }
+    
+    .camp-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .camp-section-new {
+        padding: 3.5rem 0;
+    }
+    
+    .camp-header {
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .camp-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .camp-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .camp-features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .camp-feature-card {
+        padding: 1.25rem;
+        border-radius: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .feature-card-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    
+    .camp-feature-card h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .camp-feature-card p {
+        font-size: 0.8rem;
+    }
+
+    .camp-stats-row {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .camp-stat-item {
+        padding: 0.6rem 1rem;
+        min-width: 100px;
+    }
+
+    .camp-stat-item .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .camp-stat-item .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .sessions-list {
+        gap: 0.5rem;
+    }
+
+    .session-chip {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8rem;
+    }
+    
+    .camp-card-main {
+        min-height: 250px;
+        border-radius: 20px;
+    }
+    
+    .camp-main-image {
+        border-radius: 20px;
+    }
+    
+    .camp-card-overlay {
+        border-radius: 0 0 20px 20px;
+        padding: 1.25rem;
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .camp-section-new {
+        padding: 3rem 0;
+    }
+    
+    .camp-card-main {
+        min-height: 200px;
+    }
+    
+    .camp-stat-item {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .camp-stat-item .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .session-chip {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .camp-cta .btn {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   ANCIEN CAMP SECTION (Compatibilité)
+   ==========================================================================
+   Styles conservés pour la version précédente du camp.
+   ========================================================================== */
+
+.camp-section {
+    background: var(--gray-900);
+    position: relative;
+    overflow: hidden;
+}
+
+.camp-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.camp-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.camp-text > p {
+    color: var(--gray-300);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.camp-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.camp-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.camp-feature .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gray-700);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.camp-feature .feature-content h4 {
+    margin-bottom: 0.25rem;
+}
+
+.camp-feature .feature-content p {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+}
+
+.camp-dates {
+    background: var(--gray-700);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+}
+
+.camp-dates h4 {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-300);
+}
+
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--gray-600);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+}
+
+.date-icon {
+    font-size: 1.25rem;
+}
+
+.camp-image {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    background: var(--gray-700);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    background: linear-gradient(135deg, var(--gray-700) 0%, var(--gray-600) 100%);
+}
+
+/* Stats flottantes sur l'image */
+.floating-stat {
+    position: absolute;
+    background: var(--white);
+    color: var(--gray-900);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-lg);
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-stat .stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+}
+
+.floating-stat .stat-text {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+.stat-1 {
+    top: 10%;
+    right: -20px;
+}
+
+.stat-2 {
+    bottom: 15%;
+    left: -20px;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

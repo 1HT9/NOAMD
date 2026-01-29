@@ -1,0 +1,336 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Styles de Base
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Variables CSS (Couleurs, Ombres, Rayons, Transitions)
+ * 2. Reset CSS (Normalisation des styles par défaut)
+ * 3. Typographie (Titres, Textes, Liens)
+ * 4. Utilitaires (Container, Classes communes)
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. VARIABLES CSS
+   ==========================================================================
+   Définition des variables globales utilisées sur tout le site.
+   Palette de couleurs noir/gris/blanc pour un look premium et élégant.
+   ========================================================================== */
+
+:root {
+    /* --- Palette de couleurs --- */
+    --black: #000000;
+    --gray-900: #0a0a0a;
+    --gray-800: #141414;
+    --gray-700: #1f1f1f;
+    --gray-600: #2a2a2a;
+    --gray-500: #3d3d3d;
+    --gray-400: #525252;
+    --gray-300: #737373;
+    --gray-200: #a3a3a3;
+    --gray-100: #d4d4d4;
+    --gray-50: #f5f5f5;
+    --white: #ffffff;
+    
+    /* --- Dégradés --- */
+    --gradient: linear-gradient(135deg, var(--white) 0%, var(--gray-200) 100%);
+    --gradient-dark: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+    
+    /* --- Ombres --- */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    
+    /* --- Rayons de bordure --- */
+    --radius-sm: 0.25rem;
+    --radius: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* --- Transitions --- */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ==========================================================================
+   2. RESET CSS
+   ==========================================================================
+   Normalisation des styles par défaut du navigateur.
+   Assure une base cohérente sur tous les navigateurs.
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--gray-100);
+    background: var(--gray-900);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHIE
+   ==========================================================================
+   Styles pour les titres et le texte.
+   Utilisation de clamp() pour une typographie fluide et responsive.
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+h1 { 
+    font-size: clamp(2.5rem, 6vw, 5rem); 
+    font-weight: 800; 
+}
+
+h2 { 
+    font-size: clamp(2rem, 4vw, 3.5rem); 
+}
+
+h3 { 
+    font-size: clamp(1.25rem, 2vw, 1.75rem); 
+}
+
+h4 { 
+    font-size: 1.125rem; 
+}
+
+/* Texte en dégradé */
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* ==========================================================================
+   4. UTILITAIRES
+   ==========================================================================
+   Classes utilitaires réutilisables sur tout le site.
+   ========================================================================== */
+
+/* Container principal - limite la largeur et centre le contenu */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Styles communs pour les sections */
+section {
+    padding: 7rem 0;
+}
+
+/* En-tête de section standard */
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+/* Badge de section (petit label au-dessus du titre) */
+.section-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--gray-700);
+    color: var(--gray-200);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--gray-600);
+}
+
+.section-header p {
+    color: var(--gray-300);
+    font-size: 1.125rem;
+    margin-top: 1.25rem;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   STYLES GLOBAUX POUR LES SELECTS
+   ==========================================================================
+   Correction du style natif des dropdowns sur tous les navigateurs.
+   ========================================================================== */
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* Style des options pour tous les selects */
+select option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+}
+
+select option:hover,
+select option:focus,
+select option:active,
+select option:checked {
+    background: linear-gradient(#2a2a2a, #2a2a2a);
+    background-color: #2a2a2a !important;
+    color: #ffffff;
+}
+
+/* Fix spécifique WebKit (Chrome, Safari, Edge) */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select option:checked {
+        background: linear-gradient(#333333, #333333);
+    }
+}
+
+/* ==========================================================================
+   5. RESPONSIVE UTILITIES
+   ==========================================================================
+   Ajustements globaux pour le responsive.
+   ========================================================================== */
+
+/* Container responsive */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+    
+    section {
+        padding: 5rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    section {
+        padding: 3.5rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+        margin-top: 0.75rem;
+    }
+    
+    .section-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.875rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.875rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+    
+    h2 {
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
+    }
+    
+    h3 {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+    }
+}
+
+/* Fix pour iOS Safari - évite le zoom sur les inputs */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Désactiver les animations sur les appareils qui préfèrent le mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Fix pour la hauteur sur mobile (évite les problèmes avec la barre d'adresse) */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+}

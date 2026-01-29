@@ -1,0 +1,692 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomad Rise - Élève ton jeu, dépasse tes limites</title>
+    <meta name="description" content="Nomad Rise - Camps de basket intensifs, coaching personnalisé et tournois internationaux pour athlètes ambitieux.">
+    
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Netlify Identity Widget (nécessaire pour la redirection après login CMS) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">ACCUEIL</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#camp">RISE CAMP</a></li>
+                <li><a href="#fit">RISE FIT</a></li>
+                <li><a href="#training">RISE TRAINING</a></li>
+                <li><a href="#tour">RISE TOUR</a></li>
+                <li><a href="#galerie">GALERIE</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <a href="#home" class="logo logo-main">
+                <img src="img/logo site.png" alt="Nomad Rise - Retour à l'accueil" class="logo-img">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content-centered">
+                <span class="hero-badge">PROGRAMME 2026 • ELITE DEVELOPEMENT</span>
+                <h1>S'ÉMANCIPER PAR LA<br><span class="gradient-text">PERFORMANCE ET L'INCLUSION</span></h1>
+                <p class="hero-subtitle">Nomad Rise structure ton progrès avec un système complet : intensité, précision technique et mental fort — pour franchir un cap réel, mesurable et durable.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary btn-lg">DÉCOUVRIR NOS PROGRAMMES</a>
+                    <a href="#contact" class="btn btn-outline btn-lg">PARLER À UN COACH</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">PROGRAMMES</span>
+                <h2>Une progression <span class="gradient-text">structurée</span></h2>
+                <p>Quatre formats pour un plan de progression clair et ambitieux.</p>
+            </div>
+            <div class="services-grid services-grid-4">
+                <a href="#camp" class="service-card">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">🏀</div>
+                    <h3>NOMAD RISE CAMP</h3>
+                    <p>Stages intensifs pour créer de nouvelles habitudes et booster la confiance.</p>
+                    <div class="service-tags">
+                        <span class="tag">Vacances</span>
+                        <span class="tag">Groupe</span>
+                    </div>
+                </a>
+                <a href="#fit" class="service-card">
+                    <div class="service-number">02</div>
+                    <div class="service-icon">❤️</div>
+                    <h3>NOMAD RISE FIT</h3>
+                    <p>Basket santé : activité physique adaptée pour le bien-être et l'accessibilité.</p>
+                    <div class="service-tags">
+                        <span class="tag">Bien-être</span>
+                        <span class="tag">Adapté</span>
+                    </div>
+                </a>
+                <a href="#training" class="service-card featured">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">⚡</div>
+                    <h3>NOMAD TRAINING</h3>
+                    <p>Coaching personnalisé avec plusieurs entraîneurs et préparateur physique.</p>
+                    <div class="service-tags">
+                        <span class="tag">1:1</span>
+                        <span class="tag">Sur‑mesure</span>
+                    </div>
+                </a>
+                <a href="#tour" class="service-card">
+                    <div class="service-number">04</div>
+                    <div class="service-icon">✈️</div>
+                    <h3>NOMAD RISE TOUR</h3>
+                    <p>Sélection annuelle et tournois internationaux à travers l'Europe.</p>
+                    <div class="service-tags">
+                        <span class="tag">International</span>
+                        <span class="tag">Compétition</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camp Section -->
+    <section class="camp-section-new" id="camp">
+        <div class="camp-bg-elements">
+            <div class="camp-orb camp-orb-1"></div>
+            <div class="camp-orb camp-orb-2"></div>
+            <div class="camp-lines"></div>
+        </div>
+        <div class="container">
+            <div class="camp-header">
+                <span class="section-badge">NOMAD RISE CAMP</span>
+                <h2>INTENSITÉ, STRUCTURE, <span class="gradient-text">RÉSULTATS</span></h2>
+                <p class="camp-subtitle">Un format court et puissant pour transformer tes fondamentaux. Sessions rythmées, feedback immédiat, objectifs clairs.</p>
+            </div>
+
+            <div class="camp-grid-new">
+                <!-- Cards des features -->
+                <div class="camp-card camp-card-main">
+                    <div class="camp-card-visual">
+                        <img src="photos/camps/CAMP.JPG" alt="Nomad Rise Camp" class="camp-main-image">
+                        <div class="camp-card-overlay">
+                            <div class="camp-stats-row">
+                                <div class="camp-stat-item">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Jours intensifs</span>
+                                </div>
+                                <div class="camp-stat-item">
+                                    <span class="stat-number">5x</span>
+                                    <span class="stat-label">Par an</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="camp-features-grid">
+                    <div class="camp-feature-card">
+                        <div class="feature-card-icon">
+                            <span>🎯</span>
+                        </div>
+                        <h4>Routine technique</h4>
+                        <p>Exercices ciblés pour stabiliser tes gestes.</p>
+                    </div>
+
+                    <div class="camp-feature-card">
+                        <div class="feature-card-icon">
+                            <span>🧱</span>
+                        </div>
+                        <h4>Fondation physique</h4>
+                        <p>Force, mobilité et prévention des blessures.</p>
+                    </div>
+
+                    <div class="camp-feature-card">
+                        <div class="feature-card-icon">
+                            <span>🧠</span>
+                        </div>
+                        <h4>Mental & constance</h4>
+                        <p>Focus, discipline et routines gagnantes.</p>
+                    </div>
+
+                    <div class="camp-feature-card">
+                        <div class="feature-card-icon">
+                            <span>📊</span>
+                        </div>
+                        <h4>Suivi progression</h4>
+                        <p>Analyse vidéo et bilan personnalisé.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="camp-sessions">
+                <h4 class="sessions-title">Sessions disponibles</h4>
+                <div class="sessions-list">
+                    <a href="#contact" class="session-chip session-chip-link"><span class="chip-dot"></span>Vacances d'été</a>
+                    <a href="#contact" class="session-chip session-chip-link"><span class="chip-dot"></span>Vacances de la Toussaint</a>
+                    <a href="#contact" class="session-chip session-chip-link"><span class="chip-dot"></span>Vacances de Noël</a>
+                    <a href="#contact" class="session-chip session-chip-link"><span class="chip-dot"></span>Vacances d'hiver</a>
+                    <a href="#contact" class="session-chip session-chip-link"><span class="chip-dot"></span>Vacances de printemps</a>
+                </div>
+            </div>
+
+            <div class="camp-cta">
+                <a href="#contact" class="btn btn-primary btn-lg">Recevoir le planning <span>→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fit Section - Basket Santé -->
+    <section class="fit-section" id="fit">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">NOMAD RISE FIT</span>
+                <h2>"BOUGER MIEUX, <span class="gradient-text">VIVRE MIEUX"</span></h2>
+                <p class="fit-intro">Nomad Rise Fit est le service sport-santé de la structure, dédié à la remise en forme, au bien-être et à la mobilité des adultes et des seniors. À travers des séances adaptées (renforcement doux, mobilité, équilibre, respiration), le programme aide chacun à entretenir sa condition physique, prévenir les blessures et améliorer sa qualité de vie.</p>
+            </div>
+
+            <div class="fit-objective">
+                <p><strong>Objectif :</strong> Rendre le mouvement accessible à tous, dans un cadre bienveillant, dynamique et encadré par des professionnels du sport.</p>
+            </div>
+
+            <div class="fit-grid-3col">
+                <!-- Colonne 1 : Énergie et confort -->
+                <div class="fit-col fit-col-benefit">
+                    <div class="fit-benefit-card">
+                        <span class="fit-benefit-icon">💪</span>
+                        <h3>Retrouver de l'énergie et du confort</h3>
+                        <p>Dans les gestes du quotidien</p>
+                    </div>
+                </div>
+
+                <!-- Colonne 2 : Offre sport-santé -->
+                <div class="fit-col fit-col-benefit">
+                    <div class="fit-benefit-card">
+                        <span class="fit-benefit-icon">🤝</span>
+                        <h3>Une offre sport-santé clé en main</h3>
+                        <p>Qui valorise l'engagement envers le public</p>
+                    </div>
+                </div>
+
+                <!-- Colonne 3 : Accompagnement -->
+                <div class="fit-col fit-col-benefit">
+                    <div class="fit-benefit-card">
+                        <span class="fit-benefit-icon">❤️</span>
+                        <h3>Profiter d'un accompagnement sécurisant</h3>
+                        <p>Qui respecte le rythme de chacun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fit-schedule">
+                <div class="fit-schedule-badge">
+                    <span class="schedule-icon">📅</span>
+                    <span class="schedule-text">TOUS LES VENDREDIS</span>
+                </div>
+            </div>
+
+            <div class="fit-cta">
+                <a href="#contact" class="btn btn-primary btn-lg">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section - Coaching personnalisé -->
+    <section class="training-section" id="training">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">NOMAD TRAINING</span>
+                <h2>COACHING <span class="gradient-text">HAUTE PRÉCISION</span></h2>
+                <p>Des séances courtes et intenses pour corriger, valider, et progresser vite. Disponible chaque vendredi.</p>
+            </div>
+
+            <div class="fit-grid-3col">
+                <!-- Colonne 1 : Équipe de coachs -->
+                <div class="fit-col fit-col-coaches">
+                    <div class="coach-card-inline">
+                        <div class="coach-avatar-inline">
+                            <img src="img/COACH FUMEE.png" alt="Coachs Nomad Rise" loading="lazy" decoding="async">
+                        </div>
+                        <h3>Équipe d'entraîneurs</h3>
+                        <p>Plusieurs coachs experts + préparateur physique</p>
+                        <div class="coach-availability">
+                            <span class="availability-dot"></span>
+                            <span>Disponible vendredi midi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 2 : Formules -->
+                <div class="fit-col fit-col-options">
+                    <h3>Choisissez votre formule</h3>
+                    <div class="options-stack">
+                        <div class="option-card-mini" id="option30">
+                            <div class="option-duration">30 MIN</div>
+                            <p>1 point à travailler</p>
+                            <div class="focus-points">
+                                <label class="focus-point">
+                                    <input type="radio" name="focus30" value="tir">
+                                    <span>🎯 Tir</span>
+                                </label>
+                                <label class="focus-point">
+                                    <input type="radio" name="focus30" value="passe">
+                                    <span>🤝 Passe</span>
+                                </label>
+                                <label class="focus-point">
+                                    <input type="radio" name="focus30" value="dribble">
+                                    <span>⛹️ Dribble</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="option-card-mini" id="option60">
+                            <div class="option-duration">60 MIN</div>
+                            <p>2 points à travailler</p>
+                            <div class="focus-points">
+                                <label class="focus-point">
+                                    <input type="checkbox" name="focus60" value="tir">
+                                    <span>🎯 Tir</span>
+                                </label>
+                                <label class="focus-point">
+                                    <input type="checkbox" name="focus60" value="passe">
+                                    <span>🤝 Passe</span>
+                                </label>
+                                <label class="focus-point">
+                                    <input type="checkbox" name="focus60" value="dribble">
+                                    <span>⛹️ Dribble</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 3 : Réservation -->
+                <div class="fit-col fit-col-booking">
+                    <h3>Réserver une séance</h3>
+                    <p>Sélectionnez votre coach, créneau et formule pour une séance personnalisée.</p>
+                    <a href="reservation.html" class="btn btn-primary btn-full">Réserver maintenant</a>
+                </div>
+            </div>
+
+            <div class="fit-benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">📈</div>
+                    <h4>Progression mesurable</h4>
+                    <p>Objectifs clairs et retours rapides.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">👥</div>
+                    <h4>Équipe pluridisciplinaire</h4>
+                    <p>Entraîneurs + préparateur physique.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⏱️</div>
+                    <h4>Gain de temps</h4>
+                    <p>Séances courtes, impact maximal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Section -->
+    <section class="tour-section" id="tour">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">NOMAD RISE TOUR</span>
+                <h2>REPRÉSENTE <span class="gradient-text">NOMAD RISE EN EUROPE</span></h2>
+                <p class="tour-intro-text">Nomad Rise Tour, c'est la possibilité de participer à une sélection sur une durée d'un an, au sein d'une équipe qui représentera les couleurs et le logo Nomad Rise à travers l'Europe.</p>
+            </div>
+
+            <div class="tour-detection">
+                <h3 class="detection-title">🎯 Dates de détection 2026</h3>
+                <div class="detection-dates">
+                    <div class="detection-date">
+                        <span class="detection-month">Janvier</span>
+                        <span class="detection-info">Détection #1</span>
+                    </div>
+                    <div class="detection-date">
+                        <span class="detection-month">Mars</span>
+                        <span class="detection-info">Détection #2</span>
+                    </div>
+                    <div class="detection-date">
+                        <span class="detection-month">Avril</span>
+                        <span class="detection-info">Détection finale</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-timeline">
+                <h3 class="timeline-title">🏆 Tournois 2026</h3>
+                <div class="timeline-grid">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="month">MAI</span>
+                            <span class="year">2026</span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="location-flag">🇫🇷</div>
+                            <h3>Lyon</h3>
+                            <p>France</p>
+                            <span class="tour-status upcoming">Pré‑inscriptions</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="month">JUIN</span>
+                            <span class="year">2026</span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="location-flag">🇪🇸</div>
+                            <h3>Barcelone</h3>
+                            <p>Espagne</p>
+                            <span class="tour-status upcoming">À venir</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="month">JUILLET</span>
+                            <span class="year">2026</span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="location-flag">🇮🇹</div>
+                            <h3>Pesaro</h3>
+                            <p>Italie</p>
+                            <span class="tour-status upcoming">À venir</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="month">AOÛT</span>
+                            <span class="year">2026</span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="location-flag">🇭🇷</div>
+                            <h3>Zagreb</h3>
+                            <p>Croatie</p>
+                            <span class="tour-status upcoming">À venir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-benefits">
+                <div class="tour-benefit">
+                    <div class="benefit-icon">🌍</div>
+                    <h4>Ouverture internationale</h4>
+                    <p>Comprendre de nouveaux styles de jeu.</p>
+                </div>
+                <div class="tour-benefit">
+                    <div class="benefit-icon">🏆</div>
+                    <h4>Culture de compétition</h4>
+                    <p>Rythme, rigueur et pression positive.</p>
+                </div>
+                <div class="tour-benefit">
+                    <div class="benefit-icon">🤝</div>
+                    <h4>Esprit d'équipe</h4>
+                    <p>Vivre un projet collectif fort.</p>
+                </div>
+            </div>
+
+            <div class="tour-cta">
+                <a href="#contact" class="btn btn-primary btn-lg">S'inscrire à la détection</a>
+                <a href="#contact" class="btn btn-outline btn-lg">Recevoir le dossier Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie Section -->
+    <section class="gallery-section" id="galerie">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">GALERIE</span>
+                <h2>NOS <span class="gradient-text">MOMENTS FORTS</span></h2>
+                <p>Revivez les meilleurs moments de nos camps, tournois et séances de coaching.</p>
+            </div>
+
+            <!-- Filtres avec animation -->
+            <div class="gallery-filters">
+                <div class="filter-track">
+                    <button class="filter-btn active" data-filter="all">
+                        <span class="filter-icon">✨</span>
+                        <span>Tous</span>
+                    </button>
+                    <button class="filter-btn" data-filter="camps">
+                        <span class="filter-icon">🏕️</span>
+                        <span>Camps</span>
+                    </button>
+                    <button class="filter-btn" data-filter="tournois">
+                        <span class="filter-icon">🏆</span>
+                        <span>Tournois</span>
+                    </button>
+                    <button class="filter-btn" data-filter="coaching">
+                        <span class="filter-icon">🎯</span>
+                        <span>Coaching</span>
+                    </button>
+                    <div class="filter-indicator"></div>
+                </div>
+            </div>
+
+            <!-- Grille photos -->
+            <div class="gallery-grid" id="gallery-grid"></div>
+
+            <!-- Loading state -->
+            <div class="gallery-loading" id="gallery-loading">
+                <div class="loading-spinner"></div>
+                <p>Chargement des photos...</p>
+            </div>
+
+            <!-- Bouton charger plus -->
+            <div class="gallery-load-more" id="gallery-load-more" style="display: none;">
+                <button class="load-more-btn" id="load-more-btn">
+                    <span>Voir plus de photos</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+
+            <!-- Message si aucune photo -->
+            <div class="gallery-empty" id="gallery-empty" style="display: none;">
+                <span class="empty-icon">📷</span>
+                <h3>Aucune photo pour le moment</h3>
+                <p>Les photos arrivent bientôt !</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+        <button class="lightbox-close" id="lightbox-close">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">❮</button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">❯</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+        </div>
+        <div class="lightbox-info" id="lightbox-info"></div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-badge">CONTACT</span>
+                    <h2>CONSTRUISONS TON <span class="gradient-text">PLAN DE PROGRESSION</span></h2>
+                    <p>Dis‑nous tes objectifs et nous te guidons vers le format le plus adapté.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="method-icon">📧</span>
+                            <div class="method-info">
+                                <strong>Email</strong>
+                                <span>contact@nomadrise.fr</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="method-icon">📱</span>
+                            <div class="method-info">
+                                <strong>Téléphone</strong>
+                                <span>+33 6 XX XX XX XX</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="method-icon">📍</span>
+                            <div class="method-info">
+                                <strong>Localisation</strong>
+                                <span>France</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container-new">
+                    <div class="form-header">
+                        <span class="form-icon">✉️</span>
+                        <h3>Envoyez-nous un message</h3>
+                        <p>Réponse sous 24h garantie</p>
+                    </div>
+                    <form class="contact-form-new" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Nom complet</label>
+                            </div>
+                            <div class="form-field">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Choisir un sujet...</option>
+                                <option value="camp">🏀 Nomad Rise Camp</option>
+                                <option value="fit">⚡ Nomad Rise Fit</option>
+                                <option value="tour">✈️ Nomad Rise Tour</option>
+                                <option value="general">💬 Question générale</option>
+                                <option value="partnership">🤝 Partenariat</option>
+                            </select>
+                            <label for="subject">Sujet</label>
+                        </div>
+                        <div class="form-field form-field-textarea">
+                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Votre message</label>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <span>Envoyer le message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="img/logo site.png" alt="Nomad Rise" class="logo-img footer-logo">
+                    </a>
+                    <p>Un système clair pour progresser vite et durablement.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#camp">Nomad Rise Camp</a></li>
+                        <li><a href="#fit">Nomad Rise Fit</a></li>
+                        <li><a href="#training">Nomad Training</a></li>
+                        <li><a href="#tour">Nomad Rise Tour</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="#services">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Suivez-nous</h4>
+                    <div class="footer-social">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nomad Rise. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <!-- Scripts JavaScript -->
+    <script src="assets/js/core/dom.js"></script>
+    <script src="assets/js/modules/navbar.js"></script>
+    <script src="assets/js/modules/forms.js"></script>
+    <script src="assets/js/modules/gallery.js"></script>
+    <script src="assets/js/modules/animations.js"></script>
+    <script src="assets/js/modules/custom-select.js"></script>
+    <script src="assets/js/modules/content-loader.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Netlify Identity : redirection après login -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

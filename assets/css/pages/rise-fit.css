@@ -1,0 +1,828 @@
+/**
+ * ============================================================================
+ * NOMAD RISE - Section RISE FIT (Coaching Individuel)
+ * ============================================================================
+ * 
+ * SOMMAIRE :
+ * ---------------------------------------------------------------------------
+ * 1. Conteneur Principal
+ * 2. Cartes Coach
+ * 3. Grille 3 Colonnes (Layout Principal)
+ * 4. Options de Durée et Compétences
+ * 5. Formulaire de Réservation
+ * 6. Avantages (Benefits)
+ * 7. Responsive
+ * 
+ * ============================================================================
+ */
+
+
+/* ==========================================================================
+   1. CONTENEUR PRINCIPAL
+   ==========================================================================
+   La section présente les coachs et les options de coaching.
+   ========================================================================== */
+
+.fit-section {
+    background: var(--gray-900);
+}
+
+
+/* ==========================================================================
+   2. CARTES COACH
+   ==========================================================================
+   Présentation des coachs disponibles.
+   ========================================================================== */
+
+.coaches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto 4rem;
+}
+
+/* Grille centrée pour un seul coach */
+.coaches-grid.single {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto 4rem;
+}
+
+.coach-card {
+    background: var(--gray-800);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid var(--gray-700);
+    transition: var(--transition);
+    backdrop-filter: blur(6px);
+}
+
+.coach-card:hover {
+    border-color: var(--gray-500);
+    transform: translateY(-3px);
+}
+
+/* Avatar du coach */
+.coach-avatar {
+    width: 96px;
+    height: 96px;
+    background: var(--gray-800);
+    border: 1px solid var(--gray-600);
+    overflow: hidden;
+}
+
+.coach-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.coach-card h3 {
+    margin-bottom: 0.25rem;
+}
+
+.coach-card > p {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Indicateur de disponibilité */
+.coach-availability {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--gray-300);
+}
+
+.availability-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulseAvailability 2s infinite;
+}
+
+@keyframes pulseAvailability {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Carte coach duo (2 coachs ensemble) */
+.coach-card.coach-duo {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem;
+}
+
+.coach-avatar.duo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1.5rem;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--gray-700);
+    border: 1px solid var(--gray-600);
+}
+
+.coach-avatar.duo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.coach-card.coach-duo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.coach-card.coach-duo > p {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+
+/* ==========================================================================
+   3. GRILLE 3 COLONNES (LAYOUT PRINCIPAL)
+   ==========================================================================
+   Mise en page avec Coach, Options et Formulaire côte à côte.
+   ========================================================================== */
+
+.fit-grid-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    align-items: stretch;
+}
+
+.fit-col {
+    background: var(--gray-800);
+    border: 1px solid var(--gray-700);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.fit-col h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+/* Colonne Coach */
+.fit-col-coaches {
+    text-align: center;
+}
+
+.coach-card-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coach-avatar-inline {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: var(--gray-700);
+}
+
+.coach-avatar-inline img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.coach-card-inline h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.coach-card-inline > p {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Colonne Options */
+.fit-col-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.options-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option-card-mini {
+    background: var(--gray-700);
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-600);
+    position: relative;
+    backdrop-filter: blur(6px);
+}
+
+.option-card-mini.featured {
+    border-color: var(--white);
+}
+
+.option-card-mini .option-duration {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.option-card-mini > p {
+    color: var(--gray-400);
+    font-size: 0.8125rem;
+    margin-bottom: 0.75rem;
+}
+
+.option-card-mini .focus-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.option-card-mini .focus-point {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.option-card-mini .popular-tag {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.5rem;
+    top: -8px;
+    right: 12px;
+}
+
+/* Colonne Réservation */
+.fit-col-booking {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.fit-col-booking .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.fit-col-booking .form-group {
+    gap: 0.25rem;
+}
+
+.fit-col-booking .form-group label {
+    font-size: 0.75rem;
+}
+
+.fit-col-booking .form-group input,
+.fit-col-booking .form-group select {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.fit-col-booking .btn {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+}
+
+
+/* ==========================================================================
+   4. OPTIONS DE DURÉE ET COMPÉTENCES
+   ==========================================================================
+   Sélection de la durée et des compétences à travailler.
+   ========================================================================== */
+
+.booking-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.booking-options h3,
+.booking-form-container h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Carte d'option (30min, 1h, etc.) */
+.option-card {
+    background: var(--gray-800);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-700);
+    position: relative;
+    transition: var(--transition);
+    backdrop-filter: blur(6px);
+}
+
+.option-card:hover {
+    border-color: var(--gray-500);
+}
+
+.option-card.featured {
+    border-color: var(--white);
+}
+
+/* Tag "Populaire" */
+.popular-tag {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--white);
+    color: var(--gray-900);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.option-duration {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.option-focus p {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Points de focus (compétences) */
+.focus-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.focus-point {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--gray-700);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.875rem;
+}
+
+.focus-point:hover {
+    background: var(--gray-600);
+}
+
+.focus-point input {
+    display: none;
+}
+
+.focus-point:has(input:checked) {
+    background: var(--white);
+    color: var(--gray-900);
+}
+
+
+/* ==========================================================================
+   5. FORMULAIRE DE RÉSERVATION
+   ==========================================================================
+   Formulaire pour réserver une session de coaching.
+   ========================================================================== */
+
+.booking-form-container {
+    background: var(--gray-800);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-700);
+    backdrop-filter: blur(6px);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+
+/* ==========================================================================
+   6. AVANTAGES (BENEFITS)
+   ==========================================================================
+   Présentation des avantages du coaching.
+   ========================================================================== */
+
+.fit-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.benefit {
+    text-align: center;
+    padding: 2rem;
+    background: var(--gray-800);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-700);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.benefit h4 {
+    margin-bottom: 0.5rem;
+}
+
+.benefit p {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+}
+
+
+/* ==========================================================================
+   7. RESPONSIVE
+   ==========================================================================
+   Adaptations pour tablettes et mobiles.
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .fit-grid-3col {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto 3rem;
+        gap: 1.5rem;
+    }
+
+    .coach-avatar-inline {
+        max-width: 280px;
+    }
+
+    .booking-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .fit-benefits {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .fit-section {
+        padding: 3.5rem 0;
+    }
+    
+    .fit-section .section-header {
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .fit-section .section-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .fit-section .section-header p {
+        font-size: 0.9rem;
+    }
+    
+    .coaches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .coach-avatar.duo {
+        max-width: 100%;
+    }
+    
+    .coach-card.coach-duo {
+        padding: 1.5rem;
+    }
+
+    .fit-col {
+        padding: 1.25rem;
+        border-radius: 20px;
+    }
+    
+    .fit-col h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .coach-avatar-inline {
+        max-width: 100%;
+        max-height: 250px;
+    }
+    
+    .coach-card-inline h3 {
+        font-size: 1.1rem;
+    }
+    
+    .coach-card-inline > p {
+        font-size: 0.8rem;
+    }
+    
+    .coach-availability {
+        font-size: 0.75rem;
+    }
+    
+    .option-card-mini {
+        padding: 1rem;
+    }
+    
+    .option-card-mini .option-duration {
+        font-size: 1.25rem;
+    }
+    
+    .option-card-mini > p {
+        font-size: 0.75rem;
+    }
+    
+    .option-card-mini .focus-points {
+        gap: 0.375rem;
+    }
+    
+    .option-card-mini .focus-point {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .fit-benefits {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .benefit {
+        padding: 1.25rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        text-align: left;
+    }
+    
+    .benefit-icon {
+        font-size: 2rem;
+        margin-bottom: 0;
+        min-width: 50px;
+    }
+    
+    .benefit h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .benefit p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fit-section {
+        padding: 3rem 0;
+    }
+    
+    .fit-col {
+        padding: 1rem;
+    }
+    
+    .coach-avatar-inline {
+        max-height: 200px;
+    }
+    
+    .options-stack {
+        gap: 0.75rem;
+    }
+    
+    .fit-col-booking p {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   NOMAD RISE FIT - BASKET SANTÉ (Nouveau design)
+   ==========================================================================
+   Styles basés sur la fiche officielle Nomad Rise Fit.
+   ========================================================================== */
+
+/* Texte d'introduction */
+.fit-intro {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--gray-300);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Objectif mis en avant */
+.fit-objective {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem auto 3rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+.fit-objective p {
+    color: var(--gray-200);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.fit-objective strong {
+    color: var(--white);
+}
+
+/* Colonne avantage */
+.fit-col-benefit {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Carte avantage */
+.fit-benefit-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.fit-benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b9d, #c44569);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.fit-benefit-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.fit-benefit-card:hover::before {
+    transform: scaleX(1);
+}
+
+.fit-benefit-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+.fit-benefit-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.fit-benefit-card p {
+    font-size: 0.9rem;
+    color: var(--gray-400);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Badge horaire */
+.fit-schedule {
+    text-align: center;
+    margin: 3rem 0 2rem;
+}
+
+.fit-schedule-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+}
+
+.schedule-icon {
+    font-size: 1.5rem;
+}
+
+.schedule-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #22c55e;
+    letter-spacing: 0.1em;
+}
+
+/* CTA centré */
+.fit-cta {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fit-intro {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+    
+    .fit-objective {
+        padding: 1.25rem 1.5rem;
+        margin: 2rem auto 2.5rem;
+    }
+    
+    .fit-objective p {
+        font-size: 0.9rem;
+    }
+    
+    .fit-benefit-card {
+        padding: 1.5rem;
+    }
+    
+    .fit-benefit-icon {
+        font-size: 2rem;
+    }
+    
+    .fit-benefit-card h3 {
+        font-size: 1rem;
+    }
+    
+    .fit-benefit-card p {
+        font-size: 0.85rem;
+    }
+    
+    .fit-schedule-badge {
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .schedule-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fit-benefit-card {
+        padding: 1.25rem;
+    }
+    
+    .fit-schedule-badge {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   NOMAD TRAINING SECTION
+   ==========================================================================
+   Styles pour la section Training (coaching personnalisé).
+   ========================================================================== */
+
+.training-section {
+    background: var(--gray-800);
+    padding: 5rem 0;
+}

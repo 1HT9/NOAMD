@@ -1,0 +1,59 @@
+{
+    "title": "INTENSITÉ, STRUCTURE, RÉSULTATS",
+    "subtitle": "Des stages intensifs conçus pour faire progresser chaque joueur, quel que soit son niveau de départ.",
+    "image": "/assets/uploads/camp-main.jpg",
+    "stats": [
+        {
+            "number": "500+",
+            "label": "Joueurs formés"
+        },
+        {
+            "number": "98%",
+            "label": "Satisfaction"
+        }
+    ],
+    "features": [
+        {
+            "icon": "🏀",
+            "title": "Entraînement intensif",
+            "description": "4h de pratique quotidienne avec des exercices adaptés"
+        },
+        {
+            "icon": "📹",
+            "title": "Analyse vidéo",
+            "description": "Débriefing personnalisé pour comprendre vos axes de progression"
+        },
+        {
+            "icon": "👥",
+            "title": "Petits groupes",
+            "description": "Maximum 12 joueurs par session pour un suivi optimal"
+        },
+        {
+            "icon": "📊",
+            "title": "Suivi personnalisé",
+            "description": "Bilan complet et plan de progression à la fin du camp"
+        }
+    ],
+    "sessions": [
+        {
+            "name": "Juillet 2026",
+            "link": "#contact"
+        },
+        {
+            "name": "Août 2026",
+            "link": "#contact"
+        },
+        {
+            "name": "Toussaint 2026",
+            "link": "#contact"
+        },
+        {
+            "name": "Février 2027",
+            "link": "#contact"
+        }
+    ],
+    "cta": {
+        "text": "RÉSERVER MA PLACE",
+        "link": "#contact"
+    }
+}
